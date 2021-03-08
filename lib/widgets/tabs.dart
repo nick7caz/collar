@@ -30,7 +30,7 @@ class Tabs extends StatelessWidget {
     return Theme(
       data: ThemeData(
         primaryColor: Colors.white,
-        accentColor: Color(0xFff50519),
+        accentColor: backgroundColor,
       ),
       child: DefaultTabController(
         length: 4,
@@ -42,12 +42,12 @@ class Tabs extends StatelessWidget {
             ))],
             elevation: 10,
             leading: Container(),
-            iconTheme: IconThemeData(color: Color(0xffe67676)),
+            iconTheme: IconThemeData(color: backgroundColor),
             backgroundColor: Colors.white,
-            shadowColor: Color(0xffe67676),
+            shadowColor: backgroundColor,
             centerTitle: true,
-            title: Text("Fetch",
-              style: GoogleFonts.coiny(fontSize: 45.0, fontWeight: FontWeight.normal, color: Color(0xfff50519)),
+            title: Text("Collar",
+              style: GoogleFonts.coiny(fontSize: 45.0, fontWeight: FontWeight.normal, color: backgroundColor),
             ),
             bottom: PreferredSize(
               preferredSize: Size.fromHeight(60.0),
@@ -64,7 +64,7 @@ class Tabs extends StatelessWidget {
                         Tab(icon: Icon(FontAwesomeIcons.comments, size: 30)),
                         Tab(icon: Icon(FontAwesomeIcons.user, size: 30)),
                       ],
-                      labelColor: Color(0xfff50519),
+                      labelColor: backgroundColor,
                       unselectedLabelColor: Color(0xffe67676),
                     )
                   ],

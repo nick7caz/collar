@@ -1,3 +1,4 @@
+import 'package:fetch/constants.dart';
 import 'package:fetch/ui/cardProfile.dart';
 import 'package:fetch/widgets/photo.dart';
 import 'package:flutter/material.dart';
@@ -15,54 +16,43 @@ Widget profileWidget(
     userId,
     userRepository}) {
   return Scaffold(
-    body: SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-    child:Container(
-      padding: EdgeInsets.all(padding),
-    child: Container(
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black54,
-            blurRadius: 5.0,
-            spreadRadius: 2.0,
-            offset: Offset(10.0, 10.0),
-          )
-        ],
-        borderRadius: BorderRadius.circular(clipRadius),
-      ),
-      child: Column(
-        children: <Widget>[
-          Stack( children: <Widget>[
-          Container(
-            width: photoWidth,
-            height: photoHeight,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(clipRadius),
-              child: PhotoWidget(
-                photoLink: photo,
+    body: Stack(
+      children: [
+        SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                width: photoWidth,
+                height: photoHeight,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(clipRadius),
+                  child: PhotoWidget(
+                    photoLink: photo,
+                  ),
+                ),
               ),
-            ),
+              Container(child: CardProfile(),),
+              Container(child: PhotoWidget(
+                photoLink: photo,)),
+              SizedBox(height: 200,)
+            ],
           ),
-      Container(
-        decoration: BoxDecoration(
-            color: Colors.black26,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(clipRadius),
-              bottomRight: Radius.circular(clipRadius),
-            )),
-        width: containerWidth,
-        height: containerHeight,
-        child: child,
-      ),]
-          ),
-          Container(child: CardProfile(),),
-          Container(child: PhotoWidget(
-            photoLink: photo,))
-        ],
-      ),
+        ),
+        Positioned(bottom: 25, left: 25,
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.black38,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(clipRadius),
+                  topRight: Radius.circular(clipRadius),
+                  bottomLeft: Radius.circular(clipRadius),
+                  bottomRight: Radius.circular(clipRadius),
+                )),
+            width: containerWidth,
+            height: containerHeight*.9,
+            child: child,
+          ), )
+      ],
     ),
-    ),
-    )
   );
 }

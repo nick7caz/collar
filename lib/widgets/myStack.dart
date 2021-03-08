@@ -14,30 +14,32 @@ class MyStack extends StatelessWidget{
   children: [
 Container(
     alignment: Alignment.center,
-    width: 300,
-    height: 300,
+    width: 200,
+    height: 325,
     ),
-    Container(
+    Positioned(
+      right: 30,
+      child: Container(
     alignment: Alignment.center,
     width: 300,
     height: 300,
     child: CircleAvatar(
       backgroundColor: Colors.transparent,
-      backgroundImage: AssetImage('assets/images/IMG_01080.png'),
+      backgroundImage: AssetImage('assets/images/profileimg.png'),
       radius: 150,
     ),
-    ),
+    ),),
     Positioned(
-    left: 175,
-    top: 175,
+    left: 150,
+    top: 100,
     child: Container(
     alignment: Alignment.center,
-    width: 140,
-    height: 140,
+    width: 160,
+    height: 160,
     child: CircleAvatar(
       backgroundColor: Colors.transparent,
       backgroundImage: AssetImage('assets/images/IMG_04020.png'),
-      radius: 75,
+      radius: 100,
     ),
     ),
     )

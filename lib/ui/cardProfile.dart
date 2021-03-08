@@ -1,3 +1,4 @@
+import 'package:fetch/widgets/cardStack.dart';
 import 'package:fetch/widgets/myStack.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -26,7 +27,7 @@ class CardProfile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       SizedBox(height: 5),
-                      MyStack(),
+                      CardStack(),
                       Text("Match User Name"),
                     ],
                   ),
@@ -34,7 +35,7 @@ class CardProfile extends StatelessWidget {
                 Container(
                     width: size.width *0.3,
                     alignment: Alignment.center,
-                    child: Text('Age: 29', style: GoogleFonts.alatsi(fontSize:30.0,color: Color(0xffe67676)),
+                    child: Text('Age', style: GoogleFonts.alatsi(fontSize:30.0,color: Color(0xffe67676)),
                     )
                 ),
                 Container(
@@ -45,8 +46,14 @@ class CardProfile extends StatelessWidget {
                 ),
                 Container(
                     width: size.width *0.3,
-                    child: Text('This is me and my fur friend', style: GoogleFonts.alatsi(fontSize:15.0, color: Color(0xffe67676)),)
-                )
+                    child: Text('This is me and my fur friend, we do a lot of cool stuff together.', style: GoogleFonts.alatsi(fontSize:15.0, color: Color(0xffe67676)),)
+                ),
+      Container(
+          width: size.width *0.3,
+          child: Text('Looking for...', style: GoogleFonts.alatsi(fontSize:15.0, color: Color(0xffe67676)))),
+      Container(
+          width: size.width *0.3,
+          child: Text('Catch us out doing...', style: GoogleFonts.alatsi(fontSize:15.0, color: Color(0xffe67676))))
               ]
           )
       ),

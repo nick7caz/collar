@@ -1,12 +1,15 @@
 import 'package:fetch/constants.dart';
+import 'package:fetch/models/user.dart';
+import 'package:fetch/repositories/userRepo.dart';
 import 'package:fetch/ui/guidelines.dart';
+import 'package:fetch/ui/preferences.dart';
+import 'package:fetch/widgets/photo.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:footer/footer.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyDrawer extends StatelessWidget{
-
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +18,13 @@ class MyDrawer extends StatelessWidget{
         padding: EdgeInsets.all(10),
         children: <Widget>[
           DrawerHeader(
-            child: Text('Fetch',
+            child: Text('Collar',
               textAlign: TextAlign.center,
               style: GoogleFonts.coiny(fontSize: 75.0, fontWeight: FontWeight.normal ,color: backgroundColor),),
           ),
           CircleAvatar(backgroundColor: backgroundColor,
           radius: 60,
-          child: Text('Profile img')),
+          child: PhotoWidget(photoLink: '')),
           SizedBox(height: 40),
           ListTile(
             leading: Icon(FontAwesomeIcons.wrench,color: Color(0xffe67676)),
@@ -32,7 +35,8 @@ class MyDrawer extends StatelessWidget{
                 )
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(context, MaterialPageRoute(
+                  builder: (context) => Preferences()));
             },
           ),
           SizedBox(height: 20.0),
@@ -79,5 +83,4 @@ class MyDrawer extends StatelessWidget{
       ),
     );
   }
-
 }

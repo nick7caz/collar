@@ -1,6 +1,7 @@
 import 'package:fetch/constants.dart';
 import 'package:fetch/repositories/userRepo.dart';
 import 'package:fetch/ui/home.dart';
+import 'package:fetch/ui/profile.dart';
 import 'package:fetch/widgets/tabs.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 class GuideLines extends StatelessWidget{
+
 
 
   @override
@@ -69,11 +71,11 @@ class GuideLines extends StatelessWidget{
       ),
     )
       ),
-     // bottomNavigationBar: RaisedButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => Tabs()));},
-     //     textColor: Color(0xFFf50519),
-     //     color: Colors.transparent,
-     //     padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-     //     child: Text('Back to Fetch')),
+     bottomNavigationBar: RaisedButton(onPressed: () {},
+         textColor: Color(0xFFf50519),
+         color: Colors.transparent,
+         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+         child: Text('Back to Fetch')),
     );
   }
 

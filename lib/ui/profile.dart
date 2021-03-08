@@ -29,8 +29,9 @@ class Profile extends StatelessWidget {
       appBar: AppBar(
         title: Text("Tell Us About Yourself", style: GoogleFonts.alatsi(fontSize: 30,color: Color(0xffe67676)),),
         centerTitle: true,
-        backgroundColor: Colors.white,
-        elevation: 5,
+        backgroundColor: backgroundColor,
+        elevation: 20,
+        shadowColor: Color(0xffe67676),
       ),
       body: BlocProvider<ProfileBloc>(
         create: (context) => ProfileBloc(userRepository: _userRepository),

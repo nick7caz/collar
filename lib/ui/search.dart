@@ -75,15 +75,15 @@ class _SearchState extends State<Search> {
           if (_user.location == null) {
             return Center(
                 child: Text(
-              "Fetch",
+              "Collar",
               textAlign: TextAlign.center,
               style: GoogleFonts.coiny(
                   fontSize: 25.0,
                   fontWeight: FontWeight.bold,
                   color: Color(0xfff50519),
             ),));
-          } else
-            return profileWidget(
+          }
+          else return profileWidget(
               padding: size.height * 0.035,
               photoHeight: size.height * 0.8,
               photoWidth: size.width * 0.95,

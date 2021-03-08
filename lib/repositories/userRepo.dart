@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fetch/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
@@ -47,6 +48,22 @@ class UserRepository {
   Future<String> getUser() async {
     return (await _firebaseAuth.currentUser()).uid;
   }
+
+  Future<User> userInfo({userId}) async {
+    User _user = User();
+
+    await _firestore.collection('users').document(userId).get().then((user) {
+      _user.uid = user.documentID;
+      _user.name = user['name'];
+      _user.photo = user['photoUrl'];
+      _user.age = user['age'];
+      _user.location = user['location'];
+      _user.gender = user['gender'];
+      _user.interestedIn = user['interestedIn'];
+    });
+    return _user;
+  }
+
 
   //profile setup
   Future<void> profileSetup(

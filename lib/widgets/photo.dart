@@ -38,7 +38,7 @@ class PhotoWidget extends StatelessWidget {
             );
             break;
         }
-        return Text("");
+        return Text("e");
       },
     );
   }

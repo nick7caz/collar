@@ -118,7 +118,7 @@ class _LoginFormState extends State<LoginForm> {
         builder: (context, state) {
           return SingleChildScrollView(
             child: Container(
-              color: Colors.white,
+              color: backgroundColor,
               width: size.width,
               height: size.height,
               child: Column(
@@ -126,13 +126,13 @@ class _LoginFormState extends State<LoginForm> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Center(
-                    child: Image.asset('assets/images/logo.png',width: size.width *0.65,)
+                    child: Text('Collar', style: GoogleFonts.coiny(fontSize: size.width*.2, color: Colors.white),)
                   ),
                   Container(
                     width: size.width * 0.8,
                     child: Divider(
                       height: size.height * 0.05,
-                      color: Colors.white,
+                      color: Colors.transparent,
                     ),
                   ),
                   Padding(
@@ -146,7 +146,7 @@ class _LoginFormState extends State<LoginForm> {
                       decoration: InputDecoration(
                         labelText: "Email",
                         labelStyle: TextStyle(
-                            color: Colors.grey, fontSize: size.height * 0.03),
+                            color: Color(0xffe67676), fontSize: size.height * 0.03),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
                           BorderSide(color: Colors.white, width: 1.0),
@@ -169,7 +169,7 @@ class _LoginFormState extends State<LoginForm> {
                       decoration: InputDecoration(
                         labelText: "Password",
                         labelStyle: TextStyle(
-                            color: Colors.grey, fontSize: size.height * 0.03),
+                            color: Color(0xffe67676), fontSize: size.height * 0.03),
                       ),
                     ),
                   ),
@@ -217,7 +217,7 @@ class _LoginFormState extends State<LoginForm> {
                             );
                           },
                           child: Text(
-                            "New to Fetch? Sign Up",
+                            "New to Collar? Sign Up",
                             style: TextStyle(
                                 fontSize: size.height * 0.025,
                                 color: Color(0xffe67676)),

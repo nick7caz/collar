@@ -14,9 +14,9 @@ class Splash extends StatelessWidget {
         width: size.width,
         child: Center(
           child: Text(
-            "Fetch",
+            "Collar",
             style: GoogleFonts.coiny(
-                color: Color(0xFFf50519),
+                color: backgroundColor,
                 fontSize: size.width * 0.2,)
           ),
         ),

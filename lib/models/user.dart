@@ -17,4 +17,16 @@ class User {
         this.photo,
         this.age,
         this.location});
+
+  factory User.fromDocument(DocumentSnapshot doc){
+    return User(
+      uid: doc['uid'],
+      name: doc['name'],
+      gender: doc['gender'],
+      interestedIn: doc['interestedIn'],
+      photo: doc['photo'],
+      age: doc['age'],
+      location: doc['location']
+    );
+  }
 }

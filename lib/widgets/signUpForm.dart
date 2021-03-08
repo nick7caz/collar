@@ -105,7 +105,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 children: <Widget>[
                   SizedBox(height: 20),
                   Center(
-                    child: Image(image: AssetImage('assets/images/logo.png'), width: size.width *0.65)
+                    child: Image(image: AssetImage('assets/images/2.jpeg'), width: size.width *0.65)
                   ),
                   Container(
                     width: size.width * 0.8,

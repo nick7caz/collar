@@ -1,11 +1,11 @@
-import 'package:fetch/bloc/matches_bloc.dart';
-import 'package:fetch/constants.dart';
-import 'package:fetch/models/user.dart';
-import 'package:fetch/repositories/matchesrepo.dart';
-import 'package:fetch/widgets/iconWidget.dart';
-import 'package:fetch/widgets/pageAnimation.dart';
-import 'package:fetch/widgets/profile.dart';
-import 'package:fetch/widgets/userGender.dart';
+
+import 'package:Collar/bloc/matches/matches_bloc.dart';
+import 'package:Collar/models/user.dart';
+import 'package:Collar/repositories/matchesrepo.dart';
+import 'package:Collar/widgets/iconWidget.dart';
+import 'package:Collar/widgets/pageAnimation.dart';
+import 'package:Collar/widgets/profile.dart';
+import 'package:Collar/widgets/userGender.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -68,7 +68,7 @@ class _MatchesState extends State<Matches> {
                   child:
                 Text(
                   "Matched",
-                  style: TextStyle(color: Color(0xfff50519), fontSize: 20.0),
+                  style: TextStyle(color: Color(0xffe67676), fontSize: 20.0),
                 ),
                 ),
               ),
@@ -228,7 +228,7 @@ class _MatchesState extends State<Matches> {
                 title:
                 Text(
                   "Best In Show",
-                  style: TextStyle(color: Color(0xfff50519), fontSize: 20.0),
+                  style: TextStyle(color: Color(0xffe67676), fontSize: 20.0),
                 ),
               ),
               StreamBuilder<QuerySnapshot>(

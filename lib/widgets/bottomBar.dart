@@ -1,7 +1,8 @@
-import 'package:fetch/ui/matches.dart';
-import 'package:fetch/ui/messages.dart';
-import 'package:fetch/ui/profileView.dart';
-import 'package:fetch/ui/search.dart';
+
+import 'package:Collar/ui/matches.dart';
+import 'package:Collar/ui/messages.dart';
+import 'package:Collar/ui/profileView.dart';
+import 'package:Collar/ui/search.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

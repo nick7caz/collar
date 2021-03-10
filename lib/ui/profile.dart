@@ -1,17 +1,16 @@
 import 'dart:ui';
+import 'package:Collar/bloc/profile_bloc.dart';
+import 'package:Collar/repositories/userRepo.dart';
+import 'package:Collar/widgets/profileForm.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fetch/bloc/profile_bloc.dart';
-import 'package:fetch/repositories/userRepo.dart';
-import 'package:fetch/constants.dart';
-import 'package:fetch/widgets/photo.dart';
-import 'package:fetch/widgets/profile.dart';
-import 'package:fetch/widgets/profileForm.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../constants.dart';
 
 
 class Profile extends StatelessWidget {

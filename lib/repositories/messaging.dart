@@ -1,4 +1,4 @@
-import 'package:fetch/models/messages.dart';
+import 'package:Collar/models/messages.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:uuid/uuid.dart';

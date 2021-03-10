@@ -1,6 +1,6 @@
 import 'dart:async';
+import 'package:Collar/repositories/userRepo.dart';
 import 'package:bloc/bloc.dart';
-import 'package:fetch/repositories/userRepo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';

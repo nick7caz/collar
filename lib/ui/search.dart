@@ -1,11 +1,12 @@
+import 'package:Collar/bloc/search_bloc.dart';
+import 'package:Collar/constants.dart';
+import 'package:Collar/models/user.dart';
+import 'package:Collar/repositories/search.dart';
+import 'package:Collar/widgets/iconWidget.dart';
+import 'package:Collar/widgets/profile.dart';
+import 'package:Collar/widgets/userGender.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:fetch/bloc/search_bloc.dart';
-import 'package:fetch/models/user.dart';
-import 'package:fetch/repositories/search.dart';
-import 'package:fetch/widgets/iconWidget.dart';
-import 'package:fetch/widgets/profile.dart';
-import 'package:fetch/widgets/userGender.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -29,10 +30,8 @@ class _SearchState extends State<Search> {
 
   getDifference(GeoPoint userLocation) async {
     Position position = await Geolocator.getCurrentPosition();
-
     double location = await Geolocator.distanceBetween(userLocation.latitude,
         userLocation.longitude, position.latitude, position.longitude);
-
     difference = location.toInt();
   }
 
@@ -80,7 +79,7 @@ class _SearchState extends State<Search> {
               style: GoogleFonts.coiny(
                   fontSize: 25.0,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xfff50519),
+                  color: Color(0xffe67676),
             ),));
           }
           else return profileWidget(

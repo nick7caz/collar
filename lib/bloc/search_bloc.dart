@@ -1,9 +1,8 @@
 import 'dart:async';
+import 'package:Collar/models/user.dart';
+import 'package:Collar/repositories/search.dart';
 import 'package:bloc/bloc.dart';
-import 'package:fetch/bloc/matches_bloc.dart';
-import 'package:fetch/repositories/search.dart';
 import 'package:meta/meta.dart';
-import 'package:fetch/models/user.dart';
 import 'package:equatable/equatable.dart';
 part 'search_event.dart';
 part 'search_state.dart';

@@ -1,10 +1,11 @@
-import 'package:fetch/bloc/signup_bloc.dart';
-import 'package:fetch/repositories/userRepo.dart';
-import 'package:fetch/constants.dart';
-import 'package:fetch/widgets/signUpForm.dart';
+import 'package:Collar/bloc/signup_bloc.dart';
+import 'package:Collar/repositories/userRepo.dart';
+import 'package:Collar/widgets/signUpForm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../constants.dart';
 
 class SignUp extends StatelessWidget {
   final UserRepository _userRepository;

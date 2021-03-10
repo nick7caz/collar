@@ -1,17 +1,15 @@
 
 import 'dart:ui';
-
-import 'package:fetch/ui/matches.dart';
-import 'package:fetch/ui/messages.dart';
-import 'package:fetch/ui/profileView.dart';
-import 'package:fetch/ui/search.dart';
-import 'package:fetch/widgets/drawer.dart';
+import 'package:Collar/ui/matches.dart';
+import 'package:Collar/ui/messages.dart';
+import 'package:Collar/ui/profileView.dart';
+import 'package:Collar/ui/search.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:fetch/ui/guidelines.dart';
 
 import '../constants.dart';
+import 'drawer.dart';
 
 class Tabs extends StatelessWidget {
   final userId;
@@ -25,7 +23,7 @@ class Tabs extends StatelessWidget {
       Search(userId: userId),
       Matches(userId: userId),
       Messages(userId: userId),
-      ProfileView(),
+      ProfileView(userRepository: userRepository, userId: userId),
     ];
     return Theme(
       data: ThemeData(

@@ -1,6 +1,7 @@
-import 'package:fetch/bloc/login_bloc.dart';
-import 'package:fetch/repositories/userRepo.dart';
-import 'package:fetch/widgets/loginForm.dart';
+
+import 'package:Collar/bloc/login/login_bloc.dart';
+import 'package:Collar/repositories/userRepo.dart';
+import 'package:Collar/widgets/loginform.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';

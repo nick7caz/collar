@@ -1,7 +1,7 @@
-import 'package:fetch/bloc/messages_bloc.dart';
-import 'package:fetch/constants.dart';
-import 'package:fetch/repositories/messagesrepo.dart';
-import 'package:fetch/widgets/chat.dart';
+
+import 'package:Collar/bloc/messages/messages_bloc.dart';
+import 'package:Collar/repositories/messagesrepo.dart';
+import 'package:Collar/widgets/chat.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

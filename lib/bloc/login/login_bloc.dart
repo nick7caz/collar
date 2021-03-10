@@ -1,14 +1,11 @@
 import 'dart:async';
+import 'package:Collar/repositories/userRepo.dart';
+import 'package:Collar/validators.dart';
 import 'package:bloc/bloc.dart';
-import 'package:fetch/repositories/userRepo.dart';
-import 'package:fetch/validators.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
-
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';

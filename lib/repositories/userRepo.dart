@@ -1,6 +1,6 @@
 import 'dart:io';
+import 'package:Collar/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fetch/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
@@ -49,7 +49,7 @@ class UserRepository {
     return (await _firebaseAuth.currentUser()).uid;
   }
 
-  Future<User> userInfo({userId}) async {
+  Future<User> userInfo(userId) async {
     User _user = User();
 
     await _firestore.collection('users').document(userId).get().then((user) {
@@ -96,5 +96,7 @@ class UserRepository {
       });
     });
   }
+
+
 
 }

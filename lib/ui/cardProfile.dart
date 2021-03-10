@@ -1,5 +1,4 @@
-import 'package:fetch/widgets/cardStack.dart';
-import 'package:fetch/widgets/myStack.dart';
+import 'package:Collar/widgets/cardStack.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_stack/image_stack.dart';

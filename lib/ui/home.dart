@@ -1,8 +1,9 @@
-import 'package:fetch/bloc/authentication_bloc.dart';
-import 'package:fetch/repositories/userRepo.dart';
-import 'package:fetch/ui/profile.dart';
-import 'package:fetch/ui/splash.dart';
-import 'package:fetch/widgets/tabs.dart';
+
+import 'package:Collar/bloc/authentication/authentication_bloc.dart';
+import 'package:Collar/repositories/userRepo.dart';
+import 'package:Collar/ui/profile.dart';
+import 'package:Collar/ui/splash.dart';
+import 'package:Collar/widgets/tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,7 +12,7 @@ import 'login.dart';
 class Home extends StatelessWidget {
   final UserRepository _userRepository;
 
-  Home({@required UserRepository userRepository})
+  Home({@required UserRepository userRepository, UserRepository})
       : assert(userRepository != null),
         _userRepository = userRepository;
 

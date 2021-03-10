@@ -1,9 +1,7 @@
 import 'dart:io';
-import 'package:fetch/bloc/authentication_bloc.dart';
-import 'package:fetch/bloc/profile_bloc.dart';
-import 'package:fetch/repositories/userRepo.dart';
-import 'package:fetch/constants.dart';
-import 'package:fetch/widgets/gender.dart';
+import 'package:Collar/bloc/authentication/authentication_bloc.dart';
+import 'package:Collar/bloc/profile_bloc.dart';
+import 'package:Collar/repositories/userRepo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +9,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+
+import '../constants.dart';
+import 'gender.dart';
 
 class ProfileForm extends StatefulWidget {
   final UserRepository _userRepository;

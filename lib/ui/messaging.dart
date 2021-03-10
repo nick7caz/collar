@@ -1,16 +1,17 @@
 import 'dart:io';
-import 'package:fetch/bloc/messaging_bloc.dart';
-import 'package:fetch/bloc/messages_bloc.dart';
-import 'package:fetch/models/messages.dart';
-import 'package:fetch/models/user.dart';
-import 'package:fetch/repositories/messaging.dart';
-import 'package:fetch/constants.dart';
-import 'package:fetch/widgets/message.dart';
-import 'package:fetch/widgets/photo.dart';
+
+import 'package:Collar/bloc/messaging/messaging_bloc.dart';
+import 'package:Collar/models/messages.dart';
+import 'package:Collar/models/user.dart';
+import 'package:Collar/repositories/messaging.dart';
+import 'package:Collar/widgets/message.dart';
+import 'package:Collar/widgets/photo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../constants.dart';
 
 class Messaging extends StatefulWidget {
   final User currentUser, selectedUser;

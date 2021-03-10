@@ -1,29 +1,31 @@
-import 'package:fetch/constants.dart';
-import 'package:fetch/widgets/ageSlider.dart';
-import 'package:fetch/widgets/locationSlider.dart';
+
+import 'package:Collar/widgets/ageSlider.dart';
+import 'package:Collar/widgets/locationSlider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../constants.dart';
 
 
-class Preferences extends StatefulWidget{
 
-  @override
-  _PreferencesState createState() => _PreferencesState();
-  }
+class Preferences extends StatelessWidget{
 
-  class _PreferencesState extends State<Preferences> {
+  // @override
+  // _PreferencesState createState() => _PreferencesState();
+  // }
+  //
+  // class _PreferencesState extends State<Preferences> {
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Preferences', style: GoogleFonts.coiny(fontSize: 40, color: backgroundColor),),
-        centerTitle: true,
         backgroundColor: Colors.white,
-        leading: Container(),
+        centerTitle: true,
+        title: Text('Preferences', style: GoogleFonts.alatsi(fontSize: 30.0, fontWeight: FontWeight.bold, color: backgroundColor),),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: size.width * 0.03, vertical: size.height *0.1),

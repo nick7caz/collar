@@ -1,12 +1,10 @@
-import 'package:fetch/constants.dart';
-import 'package:fetch/repositories/userRepo.dart';
-import 'package:fetch/ui/home.dart';
-import 'package:fetch/ui/profile.dart';
-import 'package:fetch/widgets/tabs.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../constants.dart';
 
 
 
@@ -20,9 +18,8 @@ class GuideLines extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         backgroundColor: backgroundColor,
-        leading: new Container(),
         centerTitle: true,
-        title: Text('Fetch Guidelines', style: GoogleFonts.alatsi(fontSize: 30.0, fontWeight: FontWeight.bold),),
+        title: Text('Collar Guidelines', style: GoogleFonts.alatsi(fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.white),),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -71,11 +68,6 @@ class GuideLines extends StatelessWidget{
       ),
     )
       ),
-     bottomNavigationBar: RaisedButton(onPressed: () {},
-         textColor: Color(0xFFf50519),
-         color: Colors.transparent,
-         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-         child: Text('Back to Fetch')),
     );
   }
 

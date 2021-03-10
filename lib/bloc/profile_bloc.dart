@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:Collar/repositories/userRepo.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
-import 'package:fetch/repositories/userRepo.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter/cupertino.dart';
 

@@ -1,6 +1,5 @@
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fetch/repositories/userRepo.dart';
 
 
 class PhotoWidget extends StatelessWidget {

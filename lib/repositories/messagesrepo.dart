@@ -1,5 +1,5 @@
-import 'package:fetch/models/messages.dart';
-import 'package:fetch/models/user.dart';
+import 'package:Collar/models/messages.dart';
+import 'package:Collar/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MessageRepository {

@@ -1,6 +1,6 @@
-import 'package:fetch/constants.dart';
-import 'package:fetch/ui/cardProfile.dart';
-import 'package:fetch/widgets/photo.dart';
+
+import 'package:Collar/ui/cardProfile.dart';
+import 'package:Collar/widgets/photo.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

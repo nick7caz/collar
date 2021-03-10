@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:fetch/models/messages.dart';
+import 'package:Collar/models/messages.dart';
+import 'package:Collar/repositories/messaging.dart';
 import 'package:bloc/bloc.dart';
-import 'package:fetch/repositories/messaging.dart';
 import 'package:meta/meta.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';

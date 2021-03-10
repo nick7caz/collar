@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:fetch/repositories/messagesrepo.dart';
+import 'package:Collar/repositories/messagesrepo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';

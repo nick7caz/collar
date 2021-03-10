@@ -1,9 +1,11 @@
-import 'package:fetch/models/messages.dart';
-import 'package:fetch/repositories/messaging.dart';
-import 'package:fetch/constants.dart';
-import 'package:fetch/widgets/photo.dart';
+
+import 'package:Collar/models/messages.dart';
+import 'package:Collar/repositories/messaging.dart';
+import 'package:Collar/widgets/photo.dart';
 import 'package:flutter/material.dart';
 import 'package:timeago/timeago.dart' as timeago;
+
+import '../constants.dart';
 
 class MessageWidget extends StatefulWidget {
   final String messageId, currentUserId;

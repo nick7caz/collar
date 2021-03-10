@@ -133,3 +133,13 @@ class ProfileState {
     );
   }
 }
+
+class LoadProfileState extends ProfileState{
+  final Stream<QuerySnapshot> age;
+  final Stream<QuerySnapshot> photoUrl;
+
+  LoadProfileState(this.age, this.photoUrl);
+
+  @override
+  List<Object> get props => [age, photoUrl];
+}

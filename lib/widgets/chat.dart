@@ -1,10 +1,11 @@
-import 'package:fetch/models/chat.dart';
-import 'package:fetch/models/messages.dart';
-import 'package:fetch/models/user.dart';
-import 'package:fetch/repositories/messagesrepo.dart';
-import 'package:fetch/ui/messaging.dart';
-import 'package:fetch/widgets/pageAnimation.dart';
-import 'package:fetch/widgets/photo.dart';
+
+import 'package:Collar/models/chat.dart';
+import 'package:Collar/models/messages.dart';
+import 'package:Collar/models/user.dart';
+import 'package:Collar/repositories/messagesrepo.dart';
+import 'package:Collar/ui/messaging.dart';
+import 'package:Collar/widgets/pageAnimation.dart';
+import 'package:Collar/widgets/photo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:timeago/timeago.dart' as timeago;

@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'package:Collar/repositories/matchesrepo.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fetch/repositories/matchesrepo.dart';
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 

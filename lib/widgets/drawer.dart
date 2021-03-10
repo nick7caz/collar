@@ -1,13 +1,15 @@
-import 'package:fetch/constants.dart';
-import 'package:fetch/models/user.dart';
-import 'package:fetch/repositories/userRepo.dart';
-import 'package:fetch/ui/guidelines.dart';
-import 'package:fetch/ui/preferences.dart';
-import 'package:fetch/widgets/photo.dart';
+
+import 'package:Collar/bloc/authentication/authentication_bloc.dart';
+import 'package:Collar/ui/guidelines.dart';
+import 'package:Collar/ui/preferences.dart';
+import 'package:Collar/widgets/photo.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:footer/footer.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../constants.dart';
 
 class MyDrawer extends StatelessWidget{
 
@@ -61,7 +63,7 @@ class MyDrawer extends StatelessWidget{
               ),
             ),
             onTap: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(
+              Navigator.push(context, MaterialPageRoute(
                   builder: (context) => GuideLines()));
             },
           ),
@@ -77,7 +79,15 @@ class MyDrawer extends StatelessWidget{
             onTap: () {
               Navigator.pop(context);
             },),
-          SizedBox(height: 50.0),
+          SizedBox(height: 20.0),
+          ListTile(
+            leading: IconButton(
+              icon: Icon(Icons.exit_to_app),
+              onPressed: () {
+                BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
+              },
+            ),
+          ),
           Footer(child: Text('Fetch Vers. 1.0'))
         ],
       ),

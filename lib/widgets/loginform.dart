@@ -1,12 +1,14 @@
-import 'package:fetch/bloc/authentication_bloc.dart';
-import 'package:fetch/bloc/login_bloc.dart';
-import 'package:fetch/repositories/userRepo.dart';
-import 'package:fetch/constants.dart';
-import 'package:fetch/ui/signup.dart';
+
+import 'package:Collar/bloc/authentication/authentication_bloc.dart';
+import 'package:Collar/bloc/login/login_bloc.dart';
+import 'package:Collar/repositories/userRepo.dart';
+import 'package:Collar/ui/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../constants.dart';
 
 class LoginForm extends StatefulWidget {
   final UserRepository _userRepository;

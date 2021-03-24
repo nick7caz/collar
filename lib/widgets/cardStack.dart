@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 
 class CardStack extends StatelessWidget{
+final photo;
+
+  const CardStack({this.photo});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class CardStack extends StatelessWidget{
             height: 300,
             child: CircleAvatar(
               backgroundColor: Colors.transparent,
-              backgroundImage: AssetImage('assets/images/profileimg.png'),
+              backgroundImage: NetworkImage(photo),
               radius: 150,
             ),
           ),

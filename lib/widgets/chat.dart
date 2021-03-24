@@ -94,11 +94,11 @@ class _ChatWidgetState extends State<ChatWidget> {
                     content: Wrap(
                       children: <Widget>[
                         Text(
-                          "Do you want to delete this chat",
+                          "Delete this Chat?",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          "This action is irreversible.",
+                          "This cannot be undone",
                           style: TextStyle(fontWeight: FontWeight.w500),
                         ),
                       ],
@@ -169,7 +169,7 @@ class _ChatWidgetState extends State<ChatWidget> {
                               style: TextStyle(color: Colors.grey),
                             )
                                 : chat.lastMessagePhoto == null
-                                ? Text("Chat Room Open")
+                                ? Text("Go Fetch")
                                 : Row(
                               children: <Widget>[
                                 Icon(

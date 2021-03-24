@@ -1,48 +1,73 @@
+import 'package:Collar/bloc/search_bloc.dart';
 import 'package:Collar/models/user.dart';
-import 'package:Collar/repositories/userRepo.dart';
+import 'package:Collar/repositories/search.dart';
 import 'package:Collar/ui/cardProfile.dart';
-import 'package:Collar/widgets/cardStack.dart';
-import 'package:Collar/widgets/myStack.dart';
-import 'package:Collar/widgets/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-
-import '../constants.dart';
 
 
 
-class ProfileView extends StatelessWidget {
-  final _userRepository;
-  final userId;
 
-  ProfileView({@required UserRepository userRepository, String userId})
-      : assert(userRepository != null && userId != null),
-        _userRepository = userRepository,
-        userId = userId;
+class ProfileView extends StatefulWidget {
+  final String userId;
 
+  const ProfileView({this.userId});
 
+  @override
+  _ProfileViewState createState() => _ProfileViewState();
+}
+
+class _ProfileViewState extends State<ProfileView> {
+  final SearchRepository _searchRepository = SearchRepository();
+  SearchBloc _searchBloc;
+  User _user, _currentUser;
+  int difference;
+
+  @override
+  void initState() {
+    _searchBloc = SearchBloc(searchRepository: _searchRepository);
+
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
+    return BlocBuilder<SearchBloc, SearchState>(
+    bloc: _searchBloc,
+    builder: (context, state) {
+      if (state is InitialSearchState) {
+        _searchBloc.add(
+          LoadUserEvent(userId: widget.userId),
+        );
+        return Center(
+          child: CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation(Colors.blueGrey),
+          ),
+        );
+      }
+      if (state is LoadingState) {
+        return Center(
+          child: CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation(Colors.blueGrey),
+          ),
+        );
+      }
+      if (state is LoadUserState) {
+        _currentUser = state.currentUser;
 
-    return Scaffold(
-     appBar: AppBar(title: Text('Profile', style: GoogleFonts.coiny(color: backgroundColor, fontSize: 30),
-     ),
-       elevation: 0,
-     ),
-     body: SingleChildScrollView(
-       child: Column(
-         children: [
-           CardProfile(),
+        return SingleChildScrollView(
+        child:
+          Column(
+          children: [
+            CardProfile(name: _currentUser.name, age: _currentUser.age,photo: _currentUser.photo),
 
-         ],
-       ),
-     ),
+          ],
+          )
+        );
+      }
+    }
+    );
 
-   );
   }
-}
+  }

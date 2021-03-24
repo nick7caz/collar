@@ -128,7 +128,7 @@ class _ProfileFormState extends State<ProfileForm> {
           return SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Container(
-              color: backgroundColor,
+              decoration: BoxDecoration(gradient: myColor),
               width: size.width,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,

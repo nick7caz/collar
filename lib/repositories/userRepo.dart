@@ -47,7 +47,9 @@ class UserRepository {
 
   Future<String> getUser() async {
     return (await _firebaseAuth.currentUser()).uid;
+
   }
+
 
   Future<User> userInfo(userId) async {
     User _user = User();
@@ -96,7 +98,6 @@ class UserRepository {
       });
     });
   }
-
 
 
 }

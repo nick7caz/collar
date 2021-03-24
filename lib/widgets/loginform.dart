@@ -120,7 +120,7 @@ class _LoginFormState extends State<LoginForm> {
         builder: (context, state) {
           return SingleChildScrollView(
             child: Container(
-              color: backgroundColor,
+              decoration: BoxDecoration(gradient: myColor),
               width: size.width,
               height: size.height,
               child: Column(
@@ -128,7 +128,7 @@ class _LoginFormState extends State<LoginForm> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Center(
-                    child: Text('Collar', style: GoogleFonts.coiny(fontSize: size.width*.2, color: Colors.white),)
+                    child: Text('Collar', style: GoogleFonts.coiny(fontSize: size.width*.2, color: backgroundColor),)
                   ),
                   Container(
                     width: size.width * 0.8,

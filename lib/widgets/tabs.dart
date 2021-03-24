@@ -23,7 +23,7 @@ class Tabs extends StatelessWidget {
       Search(userId: userId),
       Matches(userId: userId),
       Messages(userId: userId),
-      ProfileView(userRepository: userRepository, userId: userId),
+      ProfileView(userId: userId),
     ];
     return Theme(
       data: ThemeData(

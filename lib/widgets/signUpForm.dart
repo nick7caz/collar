@@ -97,16 +97,16 @@ class _SignUpFormState extends State<SignUpForm> {
           return SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Container(
-              color: Colors.white,
+              decoration: BoxDecoration(gradient: myColor),
               width: size.width,
               height: size.height,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(height: 20),
+                  SizedBox(height: 60),
                   Center(
-                    child: Image(image: AssetImage('assets/images/2.jpeg'), width: size.width *0.65)
+                    child: Text('Collar', style: GoogleFonts.coiny(fontSize: size.width*.2, color: backgroundColor),)
                   ),
                   Container(
                     width: size.width * 0.8,

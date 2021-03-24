@@ -1,14 +1,20 @@
 import 'package:Collar/widgets/cardStack.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:image_stack/image_stack.dart';
-
 
 
 class CardProfile extends StatelessWidget {
+final name;
+final userId;
+final photo;
+final age;
+
+  const CardProfile({this.name, this.userId, this.age, this.photo});
+
+
   @override
   Widget build(BuildContext context) {
-    List<String> images = [];
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
@@ -26,16 +32,15 @@ class CardProfile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       SizedBox(height: 5),
-                      CardStack(),
-                      Text("Match User Name"),
+                      CardStack(photo: photo),
+                      Text('$name'),
                     ],
                   ),
                 ),
                 Container(
                     width: size.width *0.3,
                     alignment: Alignment.center,
-                    child: Text('Age', style: GoogleFonts.alatsi(fontSize:30.0,color: Color(0xffe67676)),
-                    )
+                    child: Text('age')
                 ),
                 Container(
                     decoration: BoxDecoration(border: Border.all(width: 2, color: Color(0xffe67676)), borderRadius: BorderRadius.all(Radius.circular(50))),

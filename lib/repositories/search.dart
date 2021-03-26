@@ -59,6 +59,8 @@ class SearchRepository {
 
     await _firestore.collection('users').document(userId).get().then((user) {
       currentUser.name = user['name'];
+      currentUser.bio = user['bio'];
+      currentUser.age = user['age'];
       currentUser.photo = user['photoUrl'];
       currentUser.gender = user['gender'];
       currentUser.interestedIn = user['interestedIn'];
@@ -96,6 +98,7 @@ class SearchRepository {
             (user['interestedIn'] == currentUser.gender)) {
           _user.uid = user.documentID;
           _user.name = user['name'];
+          _user.bio = user['bio'];
           _user.photo = user['photoUrl'];
           _user.age = user['age'];
           _user.location = user['location'];

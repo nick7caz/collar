@@ -35,11 +35,11 @@ class Tabs extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
-            actions: [Builder(builder: (context) => IconButton(icon: Icon(FontAwesomeIcons.slidersH),
-            onPressed: ()=> Scaffold.of(context).openEndDrawer(),
-            ))],
+            //for an end drawer function
+            // actions: [Builder(builder: (context) => IconButton(icon: Icon(FontAwesomeIcons.slidersH),
+            // onPressed: ()=> Scaffold.of(context).openDrawer(),
+            // ))],
             elevation: 10,
-            leading: Container(),
             iconTheme: IconThemeData(color: backgroundColor),
             backgroundColor: Colors.white,
             shadowColor: backgroundColor,
@@ -70,7 +70,7 @@ class Tabs extends StatelessWidget {
               ),
             ),
           ),
-          endDrawer: MyDrawer(),
+          drawer: MyDrawer(),
           body: TabBarView(
             children: pages,
           ),

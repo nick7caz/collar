@@ -26,7 +26,7 @@ class ProfileForm extends StatefulWidget {
 
 class _ProfileFormState extends State<ProfileForm> {
   final TextEditingController _nameController = TextEditingController();
-
+  final TextEditingController _bioController = TextEditingController();
   String gender, interestedIn;
   DateTime age;
   File photo;
@@ -37,6 +37,7 @@ class _ProfileFormState extends State<ProfileForm> {
 
   bool get isFilled =>
       _nameController.text.isNotEmpty &&
+          _bioController.text.isNotEmpty &&
       gender != null &&
       interestedIn != null &&
       photo != null &&
@@ -58,6 +59,7 @@ class _ProfileFormState extends State<ProfileForm> {
     _profileBloc.add(
       Submitted(
           name: _nameController.text,
+          bio: _bioController.text,
           age: age,
           location: location,
           gender: gender,
@@ -188,7 +190,7 @@ class _ProfileFormState extends State<ProfileForm> {
                     child: Text(
                       "Enter Birthday",
                       style: TextStyle(
-                          color: Color(0xffe67676), fontSize: size.width * 0.09),
+                          color: Color(0xffe67676), fontSize: size.width * 0.08),
                     ),
                   ),
                   SizedBox(
@@ -200,25 +202,24 @@ class _ProfileFormState extends State<ProfileForm> {
                       Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: size.height * 0.02),
-                        child: Center(child: Text(
+                        child:  Text(
                           "You Are",
                           style: TextStyle(
-                              color: Color(0xffe67676), fontSize: size.width * 0.09),
+                              color: Color(0xffe67676), fontSize: size.width * 0.08),
                         ),
-                      ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           genderWidget(
-                              FontAwesomeIcons.venus, "Female", size, gender,
+                              FontAwesomeIcons.venus, "Female", size *.8 , gender,
                               () {
                             setState(() {
                               gender = "Female";
                             });
                           }),
                           genderWidget(
-                              FontAwesomeIcons.mars, "Male", size, gender, () {
+                              FontAwesomeIcons.mars, "Male", size*.8, gender, () {
                             setState(() {
                               gender = "Male";
                             });
@@ -226,7 +227,7 @@ class _ProfileFormState extends State<ProfileForm> {
                           genderWidget(
                             FontAwesomeIcons.transgender,
                             "Transgender",
-                            size,
+                            size*.8,
                             gender,
                             () {
                               setState(
@@ -245,22 +246,22 @@ class _ProfileFormState extends State<ProfileForm> {
                         padding: EdgeInsets.symmetric(
                             horizontal: size.height * 0.02),
                         child: Text(
-                          "Looking For",
+                          "Interested In",
                           style: TextStyle(
-                              color: Color(0xffe67676), fontSize: size.width * 0.09),
+                              color: Color(0xffe67676), fontSize: size.width * 0.08),
                         ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
-                          genderWidget(FontAwesomeIcons.venus, "Female", size,
+                          genderWidget(FontAwesomeIcons.venus, "Female", size*.8,
                               interestedIn, () {
                             setState(() {
                               interestedIn = "Female";
                             });
                           }),
                           genderWidget(
-                              FontAwesomeIcons.mars, "Male", size, interestedIn,
+                              FontAwesomeIcons.mars, "Male", size*.8, interestedIn,
                               () {
                             setState(() {
                               interestedIn = "Male";
@@ -269,7 +270,7 @@ class _ProfileFormState extends State<ProfileForm> {
                           genderWidget(
                             FontAwesomeIcons.transgender,
                             "Transgender",
-                            size,
+                            size*.8,
                             interestedIn,
                             () {
                               setState(
@@ -283,6 +284,7 @@ class _ProfileFormState extends State<ProfileForm> {
                       ),
                     ],
                   ),
+                  bioFieldWidget(_bioController, 'Bio', size),
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: size.height * 0.02),
                     child: GestureDetector(
@@ -330,6 +332,26 @@ Widget textFieldWidget(controller, text, size) {
         labelText: text,
         labelStyle:
             TextStyle(color: Color(0xffe67676), fontSize: size.height * 0.03),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Color(0xffe67676), width: 1.0),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Color(0xffe67676), width: 1.0),
+        ),
+      ),
+    ),
+  );
+}
+
+Widget bioFieldWidget(controller, text, size) {
+  return Padding(
+    padding: EdgeInsets.all(size.height * 0.02),
+    child: TextField(
+      controller: controller,
+      decoration: InputDecoration(
+        labelText: text,
+        labelStyle:
+        TextStyle(color: Color(0xffe67676), fontSize: size.height * 0.03),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Color(0xffe67676), width: 1.0),
         ),

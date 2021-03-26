@@ -57,6 +57,7 @@ class UserRepository {
     await _firestore.collection('users').document(userId).get().then((user) {
       _user.uid = user.documentID;
       _user.name = user['name'];
+      _user.bio = user['bio'];
       _user.photo = user['photoUrl'];
       _user.age = user['age'];
       _user.location = user['location'];
@@ -72,6 +73,7 @@ class UserRepository {
       File photo,
       String userId,
       String name,
+      String bio,
       String gender,
       String interestedIn,
       DateTime age,
@@ -90,6 +92,7 @@ class UserRepository {
           'uid': userId,
           'photoUrl': url,
           'name': name,
+          'bio': bio,
           "location": location,
           'gender': gender,
           'interestedIn': interestedIn,

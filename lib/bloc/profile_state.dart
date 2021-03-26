@@ -11,17 +11,20 @@ class ProfileState {
   final bool isFailure;
   final bool isSubmitting;
   final bool isSuccess;
+  final bool isBioEmpty;
 
   bool get isFormValid =>
       isPhotoEmpty &&
           isNameEmpty &&
           isAgeEmpty &&
           isGenderEmpty &&
-          isInterestedInEmpty;
+          isInterestedInEmpty &&
+          isBioEmpty;
 
   ProfileState({
     @required this.isPhotoEmpty,
     @required this.isNameEmpty,
+    @required this.isBioEmpty,
     @required this.isAgeEmpty,
     @required this.isGenderEmpty,
     @required this.isInterestedInEmpty,
@@ -42,6 +45,7 @@ class ProfileState {
       isGenderEmpty: false,
       isInterestedInEmpty: false,
       isLocationEmpty: false,
+        isBioEmpty: false,
     );
   }
 
@@ -56,6 +60,7 @@ class ProfileState {
       isGenderEmpty: false,
       isInterestedInEmpty: false,
       isLocationEmpty: false,
+        isBioEmpty: false,
     );
   }
 
@@ -70,6 +75,7 @@ class ProfileState {
       isGenderEmpty: false,
       isInterestedInEmpty: false,
       isLocationEmpty: false,
+        isBioEmpty: false,
     );
   }
 
@@ -84,6 +90,7 @@ class ProfileState {
       isGenderEmpty: false,
       isInterestedInEmpty: false,
       isLocationEmpty: false,
+      isBioEmpty: false,
     );
   }
 
@@ -95,6 +102,7 @@ class ProfileState {
     bool isGenderEmpty,
     bool isInterestedInEmpty,
     bool isLocationEmpty,
+    bool isBioEmpty,
   }) {
     return copyWith(
       isFailure: false,
@@ -106,6 +114,7 @@ class ProfileState {
       isGenderEmpty: isGenderEmpty,
       isInterestedInEmpty: isInterestedInEmpty,
       isLocationEmpty: isLocationEmpty,
+        isBioEmpty: isBioEmpty,
     );
   }
 
@@ -119,10 +128,12 @@ class ProfileState {
     bool isSubmitting,
     bool isSuccess,
     bool isFailure,
+    bool isBioEmpty,
   }) {
     return ProfileState(
       isPhotoEmpty: isPhotoEmpty ?? this.isPhotoEmpty,
       isNameEmpty: isNameEmpty ?? this.isNameEmpty,
+      isBioEmpty: isBioEmpty ?? this.isBioEmpty,
       isLocationEmpty: isLocationEmpty ?? this.isLocationEmpty,
       isInterestedInEmpty: isInterestedInEmpty ?? this.isInterestedInEmpty,
       isGenderEmpty: isGenderEmpty ?? this.isGenderEmpty,

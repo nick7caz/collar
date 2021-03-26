@@ -185,10 +185,10 @@ class _MessagingState extends State<Messaging> {
                         },
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: size.height * 0.005),
+                              horizontal: size.height * 0.01),
                           child: Icon(
                             Icons.add,
-                            color: Colors.white,
+                            color: backgroundColor,
                             size: size.height * 0.04,
                           ),
                         ),
@@ -198,7 +198,7 @@ class _MessagingState extends State<Messaging> {
                           height: size.height * 0.05,
                           padding: EdgeInsets.all(size.height * 0.01),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Colors.black12,
                             borderRadius:
                             BorderRadius.circular(size.height * 0.04),
                           ),
@@ -223,7 +223,7 @@ class _MessagingState extends State<Messaging> {
                           child: Icon(
                             Icons.send,
                             size: size.height * 0.04,
-                            color: isValid ? Colors.white : Colors.grey,
+                            color: isValid ? backgroundColor : Colors.grey,
                           ),
                         ),
                       )

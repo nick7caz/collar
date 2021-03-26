@@ -9,8 +9,9 @@ final name;
 final userId;
 final photo;
 final age;
+final bio;
 
-  const CardProfile({this.name, this.userId, this.age, this.photo});
+  const CardProfile({this.name, this.userId, this.age, this.photo, this.bio});
 
 
   @override
@@ -40,13 +41,19 @@ final age;
                 Container(
                     width: size.width *0.3,
                     alignment: Alignment.center,
-                    child: Text('age')
+                    child: Text( " " +
+                        (DateTime.now().year - age.toDate().year)
+                            .toString(),
+                      style: GoogleFonts.alatsi(
+                          color: Color(0xffe67676),
+                          fontSize: size.height * 0.03),
+                    ),
                 ),
                 Container(
                     decoration: BoxDecoration(border: Border.all(width: 2, color: Color(0xffe67676)), borderRadius: BorderRadius.all(Radius.circular(50))),
                     width: size.width *0.3,
                     alignment: Alignment.center,
-                    child: Text('Bio', style: GoogleFonts.alatsi(fontSize:30.0, color: Color(0xffe67676)),)
+                    child: Text('$bio', style: GoogleFonts.alatsi(fontSize:30.0, color: Color(0xffe67676)),)
                 ),
                 Container(
                     width: size.width *0.3,

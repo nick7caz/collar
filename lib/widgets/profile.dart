@@ -1,6 +1,6 @@
 
-import 'package:Collar/ui/cardProfile.dart';
 import 'package:Collar/widgets/photo.dart';
+import 'package:Collar/widgets/searchBio.dart';
 import 'package:flutter/material.dart';
 
 Widget profileWidget(
@@ -30,7 +30,7 @@ Widget profileWidget(
                   ),
                 ),
               ),
-              Container(child: CardProfile(),),
+              Container(child: SearchBio()),
               Container(child: PhotoWidget(
                 photoLink: photo,)),
               SizedBox(height: 200,)

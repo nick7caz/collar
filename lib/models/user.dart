@@ -6,6 +6,7 @@ class User {
   String gender;
   String interestedIn;
   String photo;
+  String bio;
   Timestamp age;
   GeoPoint location;
 
@@ -15,6 +16,7 @@ class User {
         this.gender,
         this.interestedIn,
         this.photo,
+        this.bio,
         this.age,
         this.location});
 
@@ -25,6 +27,7 @@ class User {
       gender: doc['gender'],
       interestedIn: doc['interestedIn'],
       photo: doc['photo'],
+      bio: doc['bio'],
       age: doc['age'],
       location: doc['location']
     );

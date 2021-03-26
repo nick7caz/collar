@@ -60,12 +60,12 @@ class _ProfileViewState extends State<ProfileView> {
         child:
           Column(
           children: [
-            CardProfile(name: _currentUser.name, age: _currentUser.age,photo: _currentUser.photo),
+            CardProfile(name: _currentUser.name, age: _currentUser.age, photo: _currentUser.photo, bio: _currentUser.bio),
 
           ],
           )
         );
-      }
+      } else return Container();
     }
     );
 

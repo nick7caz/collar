@@ -3,7 +3,9 @@ part of 'profile_bloc.dart';
 @immutable
 class ProfileState {
   final bool isPhotoEmpty;
-  final bool isNameEmpty;
+  final bool isFirstNameEmpty;
+  final bool isLastNameEmpty;
+  final bool isDisplayNameEmpty;
   final bool isAgeEmpty;
   final bool isGenderEmpty;
   final bool isInterestedInEmpty;
@@ -15,7 +17,9 @@ class ProfileState {
 
   bool get isFormValid =>
       isPhotoEmpty &&
-          isNameEmpty &&
+          isFirstNameEmpty &&
+          isLastNameEmpty &&
+          isDisplayNameEmpty &&
           isAgeEmpty &&
           isGenderEmpty &&
           isInterestedInEmpty &&
@@ -23,7 +27,9 @@ class ProfileState {
 
   ProfileState({
     @required this.isPhotoEmpty,
-    @required this.isNameEmpty,
+    @required this.isFirstNameEmpty,
+    @required this.isLastNameEmpty,
+    @required this.isDisplayNameEmpty,
     @required this.isBioEmpty,
     @required this.isAgeEmpty,
     @required this.isGenderEmpty,
@@ -40,7 +46,9 @@ class ProfileState {
       isFailure: false,
       isSuccess: false,
       isSubmitting: false,
-      isNameEmpty: false,
+      isFirstNameEmpty: false,
+      isLastNameEmpty: false,
+      isDisplayNameEmpty: false,
       isAgeEmpty: false,
       isGenderEmpty: false,
       isInterestedInEmpty: false,
@@ -55,7 +63,9 @@ class ProfileState {
       isFailure: false,
       isSuccess: false,
       isSubmitting: true,
-      isNameEmpty: false,
+      isFirstNameEmpty: false,
+      isLastNameEmpty: false,
+      isDisplayNameEmpty: false,
       isAgeEmpty: false,
       isGenderEmpty: false,
       isInterestedInEmpty: false,
@@ -70,7 +80,9 @@ class ProfileState {
       isFailure: true,
       isSuccess: false,
       isSubmitting: false,
-      isNameEmpty: false,
+      isFirstNameEmpty: false,
+      isLastNameEmpty: false,
+      isDisplayNameEmpty: false,
       isAgeEmpty: false,
       isGenderEmpty: false,
       isInterestedInEmpty: false,
@@ -85,7 +97,9 @@ class ProfileState {
       isFailure: false,
       isSuccess: true,
       isSubmitting: false,
-      isNameEmpty: false,
+      isFirstNameEmpty: false,
+      isLastNameEmpty: false,
+      isDisplayNameEmpty: false,
       isAgeEmpty: false,
       isGenderEmpty: false,
       isInterestedInEmpty: false,
@@ -97,7 +111,9 @@ class ProfileState {
 
   ProfileState update({
     bool isPhotoEmpty,
-    bool isNameEmpty,
+    bool isFirstNameEmpty,
+    bool isLastNameEmpty,
+    bool isDisplayNameEmpty,
     bool isAgeEmpty,
     bool isGenderEmpty,
     bool isInterestedInEmpty,
@@ -109,7 +125,7 @@ class ProfileState {
       isSuccess: false,
       isSubmitting: false,
       isPhotoEmpty: isPhotoEmpty,
-      isNameEmpty: isNameEmpty,
+      isFirstNameEmpty: isFirstNameEmpty,
       isAgeEmpty: isAgeEmpty,
       isGenderEmpty: isGenderEmpty,
       isInterestedInEmpty: isInterestedInEmpty,
@@ -120,7 +136,9 @@ class ProfileState {
 
   ProfileState copyWith({
     bool isPhotoEmpty,
-    bool isNameEmpty,
+    bool isFirstNameEmpty,
+    bool isLastNameEmpty,
+    bool isDisplayNameEmpty,
     bool isAgeEmpty,
     bool isGenderEmpty,
     bool isInterestedInEmpty,
@@ -132,7 +150,9 @@ class ProfileState {
   }) {
     return ProfileState(
       isPhotoEmpty: isPhotoEmpty ?? this.isPhotoEmpty,
-      isNameEmpty: isNameEmpty ?? this.isNameEmpty,
+      isFirstNameEmpty: isFirstNameEmpty ?? this.isFirstNameEmpty,
+      isLastNameEmpty: isLastNameEmpty ?? this.isLastNameEmpty,
+      isDisplayNameEmpty: isDisplayNameEmpty?? this.isDisplayNameEmpty,
       isBioEmpty: isBioEmpty ?? this.isBioEmpty,
       isLocationEmpty: isLocationEmpty ?? this.isLocationEmpty,
       isInterestedInEmpty: isInterestedInEmpty ?? this.isInterestedInEmpty,

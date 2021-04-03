@@ -95,7 +95,7 @@ class _UserProfileState extends State<UserProfile> {
                     photoHeight: size.height *.8,
                     photoWidth: size.width *.8)
                   ),
-                  Text("${_user.name}"),
+                  Text("${_user.displayName}"),
                   // this is where age will go
                   // GestureDetector(
                   //   onTap: () {

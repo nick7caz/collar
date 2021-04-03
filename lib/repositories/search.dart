@@ -10,7 +10,7 @@ class SearchRepository {
   SearchRepository({Firestore firestore})
       : _firestore = firestore ?? Firestore.instance;
 
-  Future<User> chooseUser(currentUserId, selectedUserId, name, photoUrl) async {
+  Future<User> chooseUser(currentUserId, selectedUserId, displayName, photoUrl) async {
     await _firestore
         .collection('users')
         .document(currentUserId)
@@ -31,7 +31,7 @@ class SearchRepository {
         .collection('selectedList')
         .document(currentUserId)
         .setData({
-      'name': name,
+      'displayName': displayName,
       'photoUrl': photoUrl,
     });
     return getUser(currentUserId);
@@ -58,7 +58,7 @@ class SearchRepository {
     User currentUser = User();
 
     await _firestore.collection('users').document(userId).get().then((user) {
-      currentUser.name = user['name'];
+      currentUser.displayName = user['displayName'];
       currentUser.bio = user['bio'];
       currentUser.age = user['age'];
       currentUser.photo = user['photoUrl'];
@@ -97,7 +97,7 @@ class SearchRepository {
             (currentUser.interestedIn == user['gender']) &&
             (user['interestedIn'] == currentUser.gender)) {
           _user.uid = user.documentID;
-          _user.name = user['name'];
+          _user.displayName = user['displayName'];
           _user.bio = user['bio'];
           _user.photo = user['photoUrl'];
           _user.age = user['age'];

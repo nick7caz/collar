@@ -36,7 +36,7 @@ class _ChatWidgetState extends State<ChatWidget> {
 
     if (message == null) {
       return Chat(
-        name: user.name,
+        name: user.displayName,
         photoUrl: user.photo,
         lastMessage: null,
         lastMessagePhoto: null,
@@ -44,7 +44,7 @@ class _ChatWidgetState extends State<ChatWidget> {
       );
     } else {
       return Chat(
-        name: user.name,
+        name: user.displayName,
         photoUrl: user.photo,
         lastMessage: message.text,
         lastMessagePhoto: message.photoUrl,
@@ -159,7 +159,7 @@ class _ChatWidgetState extends State<ChatWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              user.name,
+                              user.displayName,
                               style: TextStyle(fontSize: size.height * 0.03),
                             ),
                             chat.lastMessage != null

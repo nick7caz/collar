@@ -7,13 +7,29 @@ abstract class ProfileEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class NameChanged extends ProfileEvent {
-  final String name;
+class FirstNameChanged extends ProfileEvent {
+  final String firstName;
 
-  NameChanged({@required this.name});
+  FirstNameChanged({@required this.firstName});
 
   @override
-  List<Object> get props => [name];
+  List<Object> get props => [firstName];
+}
+class LastNameChanged extends ProfileEvent {
+  final String lastName;
+
+  LastNameChanged({@required this.lastName});
+
+  @override
+  List<Object> get props => [lastName];
+}
+class DisplayNameChanged extends ProfileEvent {
+  final String displayName;
+
+  DisplayNameChanged({@required this.displayName});
+
+  @override
+  List<Object> get props => [displayName];
 }
 class BioChanged extends ProfileEvent {
   final String bio;
@@ -70,13 +86,15 @@ class LocationChanged extends ProfileEvent {
 }
 
 class Submitted extends ProfileEvent {
-  final String name, bio, gender, interestedIn;
+  final String firstName, lastName, displayName, bio, gender, interestedIn;
   final DateTime age;
   final GeoPoint location;
   final File photo;
 
   Submitted(
-      {@required this.name,
+      {@required this.firstName,
+        @required this.lastName,
+        @required this.displayName,
         @required this.bio,
         @required this.gender,
         @required this.interestedIn,
@@ -85,5 +103,5 @@ class Submitted extends ProfileEvent {
         @required this.photo});
 
   @override
-  List<Object> get props => [location, name, bio, age, gender, interestedIn, photo];
+  List<Object> get props => [location, firstName, lastName, displayName, bio, age, gender, interestedIn, photo];
 }

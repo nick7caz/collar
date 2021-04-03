@@ -19,7 +19,8 @@ class SignUp extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Register', style: GoogleFonts.alatsi(color: backgroundColor, fontSize: 30),),
-        backgroundColor: Colors.white,
+        centerTitle: true,
+        backgroundColor: Colors.black12,
         elevation: 0,
       ),
       body: BlocProvider<SignUpBloc>(

@@ -12,7 +12,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../constants.dart';
 
 class MyDrawer extends StatelessWidget{
-
   @override
   Widget build(BuildContext context) {
     return Drawer(

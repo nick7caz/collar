@@ -27,7 +27,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       yield* _mapSelectToState(
           currentUserId: event.currentUserId,
           selectedUserId: event.selectedUserId,
-          name: event.name,
+          displayName: event.displayName,
           photoUrl: event.photoUrl);
     }
     if (event is PassUserEvent) {
@@ -44,12 +44,12 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   Stream<SearchState> _mapSelectToState(
       {String currentUserId,
         String selectedUserId,
-        String name,
+        String displayName,
         String photoUrl}) async* {
     yield LoadingState();
 
     User user = await _searchRepository.chooseUser(
-        currentUserId, selectedUserId, name, photoUrl);
+        currentUserId, selectedUserId, displayName, photoUrl);
 
     User currentUser = await _searchRepository.getUserInterests(currentUserId);
     yield LoadUserState(user, currentUser);

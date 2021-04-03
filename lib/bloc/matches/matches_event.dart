@@ -19,26 +19,26 @@ class LoadListsEvent extends MatchesEvent {
 class AcceptUserEvent extends MatchesEvent {
   final String currentUser,
       selectedUser,
-      selectedUserName,
+      selectedUserDisplayName,
       selectedUserPhotoUrl,
-      currentUserName,
+      currentUserDisplayName,
       currentUserPhotoUrl;
 
   AcceptUserEvent(
       {this.currentUser,
         this.selectedUser,
-        this.selectedUserName,
+        this.selectedUserDisplayName,
         this.selectedUserPhotoUrl,
-        this.currentUserName,
+        this.currentUserDisplayName,
         this.currentUserPhotoUrl});
 
   @override
   List<Object> get props => [
     currentUser,
     selectedUser,
-    selectedUserName,
+    selectedUserDisplayName,
     selectedUserPhotoUrl,
-    currentUserName,
+    currentUserDisplayName,
     currentUserPhotoUrl
   ];
 }

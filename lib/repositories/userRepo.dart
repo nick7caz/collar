@@ -56,7 +56,9 @@ class UserRepository {
 
     await _firestore.collection('users').document(userId).get().then((user) {
       _user.uid = user.documentID;
-      _user.name = user['name'];
+      _user.firstName = user['firstName'];
+      _user.lastName = user['lastName'];
+      _user.displayName = user['displayName'];
       _user.bio = user['bio'];
       _user.photo = user['photoUrl'];
       _user.age = user['age'];
@@ -72,7 +74,9 @@ class UserRepository {
   Future<void> profileSetup(
       File photo,
       String userId,
-      String name,
+      String firstName,
+      String lastName,
+      String displayName,
       String bio,
       String gender,
       String interestedIn,
@@ -91,7 +95,9 @@ class UserRepository {
         await _firestore.collection('users').document(userId).setData({
           'uid': userId,
           'photoUrl': url,
-          'name': name,
+          'firstName': firstName,
+          'lastName' : lastName,
+          'displayName' : displayName,
           'bio': bio,
           "location": location,
           'gender': gender,

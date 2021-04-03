@@ -61,7 +61,7 @@ class _MessagingState extends State<Messaging> {
         message: Message(
           text: _messageTextController.text,
           senderId: widget.currentUser.uid,
-          senderName: widget.currentUser.name,
+          senderName: widget.currentUser.displayName,
           selectedUserId: widget.selectedUser.uid,
           photo: null,
         ),
@@ -94,7 +94,7 @@ class _MessagingState extends State<Messaging> {
               width: size.width * 0.03,
             ),
             Expanded(
-              child: Text(widget.selectedUser.name),
+              child: Text(widget.selectedUser.displayName),
             ),
           ],
         ),
@@ -175,7 +175,7 @@ class _MessagingState extends State<Messaging> {
                               SendMessageEvent(
                                 message: Message(
                                     text: null,
-                                    senderName: widget.currentUser.name,
+                                    senderName: widget.currentUser.displayName,
                                     senderId: widget.currentUser.uid,
                                     photo: photo,
                                     selectedUserId: widget.selectedUser.uid),

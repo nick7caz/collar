@@ -119,7 +119,7 @@ class _MatchesState extends State<Matches> {
                                               Expanded(
                                                 child: Text(
                                                   " " +
-                                                      selectedUser.name +
+                                                      selectedUser.displayName +
                                                       ", " +
                                                       (DateTime.now().year -
                                                           selectedUser.age
@@ -285,7 +285,7 @@ class _MatchesState extends State<Matches> {
                                                     Expanded(
                                                       child: Text(
                                                         " " +
-                                                            selectedUser.name +
+                                                            selectedUser.displayName +
                                                             ", " +
                                                             (DateTime.now()
                                                                 .year -
@@ -358,15 +358,15 @@ class _MatchesState extends State<Matches> {
                                                             currentUserPhotoUrl:
                                                             currentUser
                                                                 .photo,
-                                                            currentUserName:
+                                                            currentUserDisplayName:
                                                             currentUser
-                                                                .name,
+                                                                .displayName,
                                                             selectedUserPhotoUrl:
                                                             selectedUser
                                                                 .photo,
-                                                            selectedUserName:
+                                                            selectedUserDisplayName:
                                                             selectedUser
-                                                                .name),
+                                                                .displayName),
                                                       );
                                                       Navigator.of(context)
                                                           .pop();
@@ -401,7 +401,7 @@ class _MatchesState extends State<Matches> {
                         },
                         childCount: user.length,
                       ),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount( crossAxisSpacing: 10,
                           crossAxisCount: 2),
                     );
                   } else

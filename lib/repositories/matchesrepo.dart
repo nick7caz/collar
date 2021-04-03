@@ -28,7 +28,7 @@ class MatchesRepository {
 
     await _firestore.collection('users').document(userId).get().then((user) {
       _user.uid = user.documentID;
-      _user.name = user['name'];
+      _user.displayName = user['displayName'];
       _user.photo = user['photoUrl'];
       _user.age = user['age'];
       _user.location = user['location'];
@@ -79,7 +79,7 @@ class MatchesRepository {
   }
 
   Future selectUser(currentUserId, selectedUserId, currentUserName,
-      currentUserPhotoUrl, selectedUserName, selectedUserPhotoUrl) async {
+      currentUserPhotoUrl, selectedUserDisplayName, selectedUserPhotoUrl) async {
     deleteUser(currentUserId, selectedUserId);
 
     await _firestore
@@ -88,7 +88,7 @@ class MatchesRepository {
         .collection('matchedList')
         .document(selectedUserId)
         .setData({
-      'name': selectedUserName,
+      'displayName': selectedUserDisplayName,
       'photoUrl': selectedUserPhotoUrl,
     });
 
@@ -98,7 +98,7 @@ class MatchesRepository {
         .collection('matchedList')
         .document(currentUserId)
         .setData({
-      'name': currentUserName,
+      'displayName': currentUserName,
       'photoUrl': currentUserPhotoUrl,
     });
   }

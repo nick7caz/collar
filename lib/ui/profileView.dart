@@ -20,7 +20,7 @@ class ProfileView extends StatefulWidget {
 class _ProfileViewState extends State<ProfileView> {
   final SearchRepository _searchRepository = SearchRepository();
   SearchBloc _searchBloc;
-  User _user, _currentUser;
+  User _currentUser;
   int difference;
 
   @override
@@ -60,7 +60,7 @@ class _ProfileViewState extends State<ProfileView> {
         child:
           Column(
           children: [
-            CardProfile(name: _currentUser.name, age: _currentUser.age, photo: _currentUser.photo, bio: _currentUser.bio),
+            CardProfile(name: _currentUser.displayName, age: _currentUser.age, photo: _currentUser.photo, bio: _currentUser.bio),
 
           ],
           )

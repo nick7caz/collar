@@ -98,7 +98,7 @@ class _SearchState extends State<Search> {
                         Expanded(
                           child: Text(
                             " " +
-                                _user.name +
+                                _user.displayName +
                                 ", " +
                                 (DateTime.now().year - _user.age.toDate().year)
                                     .toString(),
@@ -140,7 +140,7 @@ class _SearchState extends State<Search> {
                         iconWidget(FontAwesomeIcons.bone, () {
                           _searchBloc.add(
                             SelectUserEvent(
-                                name: _currentUser.name,
+                                displayName: _currentUser.displayName,
                                 photoUrl: _currentUser.photo,
                                 currentUserId: widget.userId,
                                 selectedUserId: _user.uid),

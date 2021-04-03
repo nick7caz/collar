@@ -25,19 +25,23 @@ class ProfileForm extends StatefulWidget {
 }
 
 class _ProfileFormState extends State<ProfileForm> {
-  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _bioController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _displayNameController = TextEditingController();
   String gender, interestedIn;
   DateTime age;
   File photo;
-  GeoPoint location;
+  GeoPoint location, permission;
   ProfileBloc _profileBloc;
 
   UserRepository get _userRepository => widget._userRepository;
 
   bool get isFilled =>
-      _nameController.text.isNotEmpty &&
+      _firstNameController.text.isNotEmpty &&
           _bioController.text.isNotEmpty &&
+          _lastNameController.text.isNotEmpty &&
+          _displayNameController.text.isNotEmpty &&
       gender != null &&
       interestedIn != null &&
       photo != null &&
@@ -48,8 +52,7 @@ class _ProfileFormState extends State<ProfileForm> {
   }
 
   _getLocation() async {
-    Position position = await Geolocator
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     location = GeoPoint(position.latitude, position.longitude);
 
   }
@@ -58,7 +61,9 @@ class _ProfileFormState extends State<ProfileForm> {
     await _getLocation();
     _profileBloc.add(
       Submitted(
-          name: _nameController.text,
+          firstName: _firstNameController.text,
+          lastName: _lastNameController.text,
+          displayName: _displayNameController.text,
           bio: _bioController.text,
           age: age,
           location: location,
@@ -77,7 +82,11 @@ class _ProfileFormState extends State<ProfileForm> {
 
   @override
   void dispose() {
-    _nameController.dispose();
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _displayNameController.dispose();
+    _bioController.dispose();
+
     super.dispose();
   }
 
@@ -171,7 +180,9 @@ class _ProfileFormState extends State<ProfileForm> {
                             ),
                     ),
                   ),
-                  textFieldWidget(_nameController, "Name", size),
+                  firstNameFieldWidget(_firstNameController, "First Name", size),
+                  lastNameFieldWidget(_lastNameController, "Last Name", size),
+                  displayNameFieldWidget(_displayNameController, "What Others See", size),
                   GestureDetector(
                     onTap: () {
                       DatePicker.showDatePicker(
@@ -323,7 +334,7 @@ class _ProfileFormState extends State<ProfileForm> {
   }
 }
 
-Widget textFieldWidget(controller, text, size) {
+Widget firstNameFieldWidget(controller, text, size) {
   return Padding(
     padding: EdgeInsets.all(size.height * 0.02),
     child: TextField(
@@ -342,7 +353,44 @@ Widget textFieldWidget(controller, text, size) {
     ),
   );
 }
-
+Widget lastNameFieldWidget(controller, text, size) {
+  return Padding(
+    padding: EdgeInsets.all(size.height * 0.02),
+    child: TextField(
+      controller: controller,
+      decoration: InputDecoration(
+        labelText: text,
+        labelStyle:
+        TextStyle(color: Color(0xffe67676), fontSize: size.height * 0.03),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Color(0xffe67676), width: 1.0),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Color(0xffe67676), width: 1.0),
+        ),
+      ),
+    ),
+  );
+}
+Widget displayNameFieldWidget(controller, text, size) {
+  return Padding(
+    padding: EdgeInsets.all(size.height * 0.02),
+    child: TextField(
+      controller: controller,
+      decoration: InputDecoration(
+        labelText: text,
+        labelStyle:
+        TextStyle(color: Color(0xffe67676), fontSize: size.height * 0.03),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Color(0xffe67676), width: 1.0),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Color(0xffe67676), width: 1.0),
+        ),
+      ),
+    ),
+  );
+}
 Widget bioFieldWidget(controller, text, size) {
   return Padding(
     padding: EdgeInsets.all(size.height * 0.02),

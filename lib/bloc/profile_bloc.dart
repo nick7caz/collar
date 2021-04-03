@@ -22,9 +22,13 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
   @override
   Stream<ProfileState> mapEventToState(ProfileEvent event) async* {
-    if (event is NameChanged) {
-      yield* _mapNameChangedToState(event.name);
-    } else if (event is AgeChanged) {
+    if (event is FirstNameChanged) {
+      yield* _mapFirstNameChangedToState(event.firstName);
+    } else if (event is LastNameChanged){
+      yield* _mapLastNameChangedToState(event.lastName);
+    } else if (event is DisplayNameChanged){
+      yield* _mapDisplayNameChangedToState(event.displayName);
+  } else if (event is AgeChanged) {
       yield* _mapAgeChangedToState(event.age);
     } else if (event is GenderChanged) {
       yield* _mapGenderChangedToState(event.gender);
@@ -41,7 +45,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       yield* _mapSubmittedToState(
           photo: event.photo,
           bio: event.bio,
-          name: event.name,
+          firstName: event.firstName,
+          lastName: event.lastName,
+          displayName: event.displayName,
           gender: event.gender,
           userId: uid,
           age: event.age,
@@ -50,9 +56,19 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     }
   }
 
-  Stream<ProfileState> _mapNameChangedToState(String name) async* {
+  Stream<ProfileState> _mapFirstNameChangedToState(String firstName) async* {
     yield state.update(
-      isNameEmpty: name == null,
+      isFirstNameEmpty: firstName == null,
+    );
+  }
+  Stream<ProfileState> _mapLastNameChangedToState(String lastName) async* {
+    yield state.update(
+      isLastNameEmpty: lastName == null,
+    );
+  }
+  Stream<ProfileState> _mapDisplayNameChangedToState(String displayName) async* {
+    yield state.update(
+      isDisplayNameEmpty: displayName == null,
     );
   }
   Stream<ProfileState> _mapBioChangedToState(String bio) async* {
@@ -95,7 +111,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   Stream<ProfileState> _mapSubmittedToState(
       {File photo,
         String gender,
-        String name,
+        String firstName,
+        String lastName,
+        String displayName,
         String bio,
         String userId,
         DateTime age,
@@ -104,7 +122,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     yield ProfileState.loading();
     try {
       await _userRepository.profileSetup(
-          photo, userId, name, bio, gender, interestedIn, age, location);
+          photo, userId, firstName, lastName, displayName, bio, gender, interestedIn, age, location);
       yield ProfileState.success();
     } catch (_) {
       yield ProfileState.failure();

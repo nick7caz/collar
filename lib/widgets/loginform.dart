@@ -218,11 +218,22 @@ class _LoginFormState extends State<LoginForm> {
                               ),
                             );
                           },
-                          child: Text(
-                            "New to Collar? Sign Up",
-                            style: TextStyle(
-                                fontSize: size.height * 0.025,
-                                color: Color(0xffe67676)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "New to Collar?",
+                                style: TextStyle(
+                                    fontSize: size.height * 0.025,
+                                    color: Color(0xffe67676)),
+                              ),
+                              Text(
+                                "Sign Up",
+                                style: TextStyle(decoration: TextDecoration.underline,
+                                    fontSize: size.height * 0.025, fontWeight: FontWeight.bold,
+                                    color: Color(0xffe67676)),
+                              ),
+                            ],
                           ),
                         )
                       ],

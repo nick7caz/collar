@@ -1,10 +1,10 @@
-
 import 'package:Collar/bloc/matches/matches_bloc.dart';
 import 'package:Collar/models/user.dart';
 import 'package:Collar/repositories/matchesrepo.dart';
 import 'package:Collar/widgets/iconWidget.dart';
+import 'package:Collar/widgets/matchedWidget.dart';
 import 'package:Collar/widgets/pageAnimation.dart';
-import 'package:Collar/widgets/profile.dart';
+import 'package:Collar/widgets/profileWidget.dart';
 import 'package:Collar/widgets/userGender.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 
+import '../constants.dart';
 import 'messaging.dart';
 
 class Matches extends StatefulWidget {
@@ -62,14 +63,13 @@ class _MatchesState extends State<Matches> {
                 leading: Container(),
                 actions: <Widget>[Container()],
                 pinned: true,
-                backgroundColor: Colors.white,
-                centerTitle:true,
+                backgroundColor: Colors.transparent,
+                centerTitle: true,
                 title: Container(
-                  child:
-                Text(
-                  "Matched",
-                  style: TextStyle(color: Color(0xffe67676), fontSize: 20.0),
-                ),
+                  child: Text(
+                    "Matched",
+                    style: TextStyle(color: Color(0xffe67676), fontSize: 20.0),
+                  ),
                 ),
               ),
               StreamBuilder<QuerySnapshot>(
@@ -85,7 +85,7 @@ class _MatchesState extends State<Matches> {
 
                     return SliverGrid(
                       delegate: SliverChildBuilderDelegate(
-                            (BuildContext context, int index) {
+                        (BuildContext context, int index) {
                           return GestureDetector(
                             onTap: () async {
                               User selectedUser = await matchesRepository
@@ -97,7 +97,7 @@ class _MatchesState extends State<Matches> {
                                 context: context,
                                 builder: (BuildContext context) => Dialog(
                                   backgroundColor: Colors.transparent,
-                                  child: profileWidget(
+                                  child: matchedWidget(
                                     photo: selectedUser.photo,
                                     photoHeight: size.height,
                                     padding: size.height * 0.01,
@@ -122,14 +122,14 @@ class _MatchesState extends State<Matches> {
                                                       selectedUser.displayName +
                                                       ", " +
                                                       (DateTime.now().year -
-                                                          selectedUser.age
-                                                              .toDate()
-                                                              .year)
+                                                              selectedUser.age
+                                                                  .toDate()
+                                                                  .year)
                                                           .toString(),
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize:
-                                                      size.height * 0.05),
+                                                          size.height * 0.05),
                                                 ),
                                               )
                                             ],
@@ -143,9 +143,9 @@ class _MatchesState extends State<Matches> {
                                               Text(
                                                 difference != null
                                                     ? (difference / 1000)
-                                                    .floor()
-                                                    .toString() +
-                                                    " km away"
+                                                            .floor()
+                                                            .toString() +
+                                                        " km away"
                                                     : "away",
                                                 style: TextStyle(
                                                   color: Colors.white,
@@ -158,28 +158,28 @@ class _MatchesState extends State<Matches> {
                                           ),
                                           Row(
                                             mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                                MainAxisAlignment.center,
                                             children: <Widget>[
                                               Padding(
                                                 padding: EdgeInsets.all(
                                                     size.height * 0.02),
                                                 child: iconWidget(Icons.message,
-                                                        () {
-                                                      _matchesBloc.add(
-                                                        OpenChatEvent(
-                                                            currentUser:
+                                                    () {
+                                                  _matchesBloc.add(
+                                                    OpenChatEvent(
+                                                        currentUser:
                                                             widget.userId,
-                                                            selectedUser:
+                                                        selectedUser:
                                                             selectedUser.uid),
-                                                      );
-                                                      pageTurn(
-                                                          Messaging(
-                                                              currentUser:
+                                                  );
+                                                  pageTurn(
+                                                      Messaging(
+                                                          currentUser:
                                                               currentUser,
-                                                              selectedUser:
+                                                          selectedUser:
                                                               selectedUser),
-                                                          context);
-                                                    }, size.height * 0.04,
+                                                      context);
+                                                }, size.height * 0.04,
                                                     Colors.white),
                                               ),
                                             ],
@@ -191,7 +191,7 @@ class _MatchesState extends State<Matches> {
                                 ),
                               );
                             },
-                            child: profileWidget(
+                            child: matchedWidget(
                               padding: size.height * 0.01,
                               photo: user[index].data['photoUrl'],
                               photoWidth: size.width * 0.5,
@@ -200,7 +200,7 @@ class _MatchesState extends State<Matches> {
                               containerHeight: size.height * 0.03,
                               containerWidth: size.width * 0.5,
                               child: Text(
-                                "  " + user[index].data['name'],
+                                "  " + user[index].data['displayName'],
                                 style: TextStyle(color: Colors.white),
                               ),
                             ),
@@ -221,12 +221,11 @@ class _MatchesState extends State<Matches> {
               ),
               SliverAppBar(
                 leading: Container(),
-                backgroundColor: Colors.white,
+                backgroundColor: Colors.transparent,
                 actions: <Widget>[Container()],
                 pinned: true,
                 centerTitle: true,
-                title:
-                Text(
+                title: Text(
                   "Best In Show",
                   style: TextStyle(color: Color(0xffe67676), fontSize: 20.0),
                 ),
@@ -243,7 +242,7 @@ class _MatchesState extends State<Matches> {
                     final user = snapshot.data.documents;
                     return SliverGrid(
                       delegate: SliverChildBuilderDelegate(
-                            (BuildContext context, int index) {
+                        (BuildContext context, int index) {
                           return GestureDetector(
                             onTap: () async {
                               User selectedUser = await matchesRepository
@@ -257,7 +256,7 @@ class _MatchesState extends State<Matches> {
                                 context: context,
                                 builder: (BuildContext context) => Dialog(
                                   backgroundColor: Colors.transparent,
-                                  child: profileWidget(
+                                  child: matchedWidget(
                                     padding: size.height * 0.01,
                                     photo: selectedUser.photo,
                                     photoHeight: size.height,
@@ -273,7 +272,7 @@ class _MatchesState extends State<Matches> {
                                           Expanded(
                                             child: Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               children: <Widget>[
                                                 SizedBox(
                                                   height: size.height * 0.01,
@@ -285,20 +284,21 @@ class _MatchesState extends State<Matches> {
                                                     Expanded(
                                                       child: Text(
                                                         " " +
-                                                            selectedUser.displayName +
+                                                            selectedUser
+                                                                .displayName +
                                                             ", " +
                                                             (DateTime.now()
-                                                                .year -
-                                                                selectedUser
-                                                                    .age
-                                                                    .toDate()
-                                                                    .year)
+                                                                        .year -
+                                                                    selectedUser
+                                                                        .age
+                                                                        .toDate()
+                                                                        .year)
                                                                 .toString(),
                                                         style: TextStyle(
                                                             color: Colors.white,
                                                             fontSize:
-                                                            size.height *
-                                                                0.05),
+                                                                size.height *
+                                                                    0.05),
                                                       ),
                                                     )
                                                   ],
@@ -312,9 +312,9 @@ class _MatchesState extends State<Matches> {
                                                     Text(
                                                       difference != null
                                                           ? (difference / 1000)
-                                                          .floor()
-                                                          .toString() +
-                                                          " km away"
+                                                                  .floor()
+                                                                  .toString() +
+                                                              " km away"
                                                           : "away",
                                                       style: TextStyle(
                                                         color: Colors.white,
@@ -327,16 +327,16 @@ class _MatchesState extends State<Matches> {
                                                 ),
                                                 Row(
                                                   mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                                      MainAxisAlignment.center,
                                                   children: <Widget>[
                                                     iconWidget(Icons.clear, () {
                                                       _matchesBloc.add(
                                                         DeleteUserEvent(
                                                             currentUser:
-                                                            currentUser.uid,
+                                                                currentUser.uid,
                                                             selectedUser:
-                                                            selectedUser
-                                                                .uid),
+                                                                selectedUser
+                                                                    .uid),
                                                       );
                                                       Navigator.of(context)
                                                           .pop();
@@ -351,22 +351,22 @@ class _MatchesState extends State<Matches> {
                                                       _matchesBloc.add(
                                                         AcceptUserEvent(
                                                             selectedUser:
-                                                            selectedUser
-                                                                .uid,
+                                                                selectedUser
+                                                                    .uid,
                                                             currentUser:
-                                                            currentUser.uid,
+                                                                currentUser.uid,
                                                             currentUserPhotoUrl:
-                                                            currentUser
-                                                                .photo,
+                                                                currentUser
+                                                                    .photo,
                                                             currentUserDisplayName:
-                                                            currentUser
-                                                                .displayName,
+                                                                currentUser
+                                                                    .displayName,
                                                             selectedUserPhotoUrl:
-                                                            selectedUser
-                                                                .photo,
+                                                                selectedUser
+                                                                    .photo,
                                                             selectedUserDisplayName:
-                                                            selectedUser
-                                                                .displayName),
+                                                                selectedUser
+                                                                    .displayName),
                                                       );
                                                       Navigator.of(context)
                                                           .pop();
@@ -384,7 +384,7 @@ class _MatchesState extends State<Matches> {
                                 ),
                               );
                             },
-                            child: profileWidget(
+                            child: matchedWidget(
                               padding: size.height * 0.01,
                               photo: user[index].data['photoUrl'],
                               photoWidth: size.width * 0.5,
@@ -393,7 +393,7 @@ class _MatchesState extends State<Matches> {
                               containerHeight: size.height * 0.03,
                               containerWidth: size.width * 0.5,
                               child: Text(
-                                "  " + user[index].data['name'],
+                                "  " + user[index].data['displayName'],
                                 style: TextStyle(color: Colors.white),
                               ),
                             ),
@@ -401,8 +401,8 @@ class _MatchesState extends State<Matches> {
                         },
                         childCount: user.length,
                       ),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount( crossAxisSpacing: 10,
-                          crossAxisCount: 2),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisSpacing: 10, crossAxisCount: 2),
                     );
                   } else
                     return SliverToBoxAdapter(

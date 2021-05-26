@@ -9,10 +9,10 @@ class Message {
 
   Message(
       {this.senderName,
-        this.senderId,
-        this.selectedUserId,
-        this.text,
-        this.photoUrl,
-        this.photo,
-        this.timestamp});
+      this.senderId,
+      this.selectedUserId,
+      this.text,
+      this.photoUrl,
+      this.photo,
+      this.timestamp});
 }

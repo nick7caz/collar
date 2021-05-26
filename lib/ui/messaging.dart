@@ -169,7 +169,7 @@ class _MessagingState extends State<Messaging> {
                       GestureDetector(
                         onTap: () async {
                           File photo =
-                          await FilePicker.getFile(type: FileType.image);
+                              await FilePicker.getFile(type: FileType.image);
                           if (photo != null) {
                             _messagingBloc.add(
                               SendMessageEvent(
@@ -200,7 +200,7 @@ class _MessagingState extends State<Messaging> {
                           decoration: BoxDecoration(
                             color: Colors.black12,
                             borderRadius:
-                            BorderRadius.circular(size.height * 0.04),
+                                BorderRadius.circular(size.height * 0.04),
                           ),
                           child: Center(
                             child: TextField(

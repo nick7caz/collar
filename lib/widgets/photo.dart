@@ -1,12 +1,12 @@
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 
-
 class PhotoWidget extends StatelessWidget {
   final String photoLink;
   final String photoUrl;
+  final String petPhotoUrl;
 
-  const PhotoWidget({this.photoLink, this.photoUrl});
+  const PhotoWidget({this.photoLink, this.photoUrl, this.petPhotoUrl});
 
   @override
   Widget build(BuildContext context) {

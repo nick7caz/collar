@@ -20,8 +20,8 @@ class MessageBloc extends Bloc<MessageEvent, MessageState> {
 
   @override
   Stream<MessageState> mapEventToState(
-      MessageEvent event,
-      ) async* {
+    MessageEvent event,
+  ) async* {
     if (event is ChatStreamEvent) {
       yield* _mapStreamToState(currentUserId: event.currentUserId);
     }
@@ -31,7 +31,7 @@ class MessageBloc extends Bloc<MessageEvent, MessageState> {
     yield ChatLoadingState();
 
     Stream<QuerySnapshot> chatStream =
-    _messageRepository.getChats(userId: currentUserId);
+        _messageRepository.getChats(userId: currentUserId);
     yield ChatLoadedState(chatStream: chatStream);
   }
 }

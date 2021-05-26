@@ -12,7 +12,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../constants.dart';
 
-
 class Profile extends StatelessWidget {
   final _userRepository;
   final userId;
@@ -26,11 +25,14 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tell Us About Yourself", style: GoogleFonts.alatsi(fontSize: 30,color: Color(0xffe67676)),),
+        title: Text(
+          "Tell Us About Yourself",
+          style: GoogleFonts.alatsi(fontSize: 30, color: backgroundColor),
+        ),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 20,
-        shadowColor: Color(0xffe67676),
+        shadowColor: backgroundColor,
       ),
       body: BlocProvider<ProfileBloc>(
         create: (context) => ProfileBloc(userRepository: _userRepository),

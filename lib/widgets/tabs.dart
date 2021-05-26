@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 import 'package:Collar/ui/matches.dart';
 import 'package:Collar/ui/messages.dart';
@@ -29,6 +28,7 @@ class Tabs extends StatelessWidget {
       data: ThemeData(
         primaryColor: Colors.white,
         accentColor: backgroundColor,
+        backgroundColor: Colors.transparent,
       ),
       child: DefaultTabController(
         length: 4,
@@ -39,13 +39,17 @@ class Tabs extends StatelessWidget {
             // actions: [Builder(builder: (context) => IconButton(icon: Icon(FontAwesomeIcons.slidersH),
             // onPressed: ()=> Scaffold.of(context).openDrawer(),
             // ))],
-            elevation: 10,
+            elevation: 20,
             iconTheme: IconThemeData(color: backgroundColor),
             backgroundColor: Colors.white,
             shadowColor: backgroundColor,
             centerTitle: true,
-            title: Text("Collar",
-              style: GoogleFonts.coiny(fontSize: 45.0, fontWeight: FontWeight.normal, color: backgroundColor),
+            title: Text(
+              "Collar",
+              style: GoogleFonts.coiny(
+                  fontSize: 45.0,
+                  fontWeight: FontWeight.normal,
+                  color: backgroundColor),
             ),
             bottom: PreferredSize(
               preferredSize: Size.fromHeight(60.0),

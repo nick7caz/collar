@@ -18,7 +18,10 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Register', style: GoogleFonts.alatsi(color: backgroundColor, fontSize: 30),),
+        title: Text(
+          'Register',
+          style: GoogleFonts.alatsi(color: backgroundColor, fontSize: 30),
+        ),
         centerTitle: true,
         backgroundColor: Colors.black12,
         elevation: 0,

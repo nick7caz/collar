@@ -1,4 +1,3 @@
-
 import 'package:Collar/bloc/authentication/authentication_bloc.dart';
 import 'package:Collar/bloc/login/login_bloc.dart';
 import 'package:Collar/repositories/userRepo.dart';
@@ -128,8 +127,11 @@ class _LoginFormState extends State<LoginForm> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Center(
-                    child: Text('Collar', style: GoogleFonts.coiny(fontSize: size.width*.2, color: backgroundColor),)
-                  ),
+                      child: Text(
+                    'Collar',
+                    style: GoogleFonts.coiny(
+                        fontSize: size.width * .25, color: backgroundColor),
+                  )),
                   Container(
                     width: size.width * 0.8,
                     child: Divider(
@@ -148,10 +150,11 @@ class _LoginFormState extends State<LoginForm> {
                       decoration: InputDecoration(
                         labelText: "Email",
                         labelStyle: TextStyle(
-                            color: Color(0xffe67676), fontSize: size.height * 0.03),
+                            color: Color(0xffe67676),
+                            fontSize: size.height * 0.03),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
-                          BorderSide(color: Colors.white, width: 1.0),
+                              BorderSide(color: Colors.white, width: 1.0),
                         ),
                       ),
                     ),
@@ -171,7 +174,8 @@ class _LoginFormState extends State<LoginForm> {
                       decoration: InputDecoration(
                         labelText: "Password",
                         labelStyle: TextStyle(
-                            color: Color(0xffe67676), fontSize: size.height * 0.03),
+                            color: Color(0xffe67676),
+                            fontSize: size.height * 0.03),
                       ),
                     ),
                   ),
@@ -191,7 +195,7 @@ class _LoginFormState extends State<LoginForm> {
                                   ? Colors.white
                                   : Colors.blueGrey,
                               borderRadius:
-                              BorderRadius.circular(size.height * 0.05),
+                                  BorderRadius.circular(size.height * 0.05),
                             ),
                             child: Center(
                               child: Text(
@@ -229,8 +233,10 @@ class _LoginFormState extends State<LoginForm> {
                               ),
                               Text(
                                 "Sign Up",
-                                style: TextStyle(decoration: TextDecoration.underline,
-                                    fontSize: size.height * 0.025, fontWeight: FontWeight.bold,
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontSize: size.height * 0.025,
+                                    fontWeight: FontWeight.bold,
                                     color: Color(0xffe67676)),
                               ),
                             ],

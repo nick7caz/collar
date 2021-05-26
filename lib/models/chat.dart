@@ -6,8 +6,8 @@ class Chat {
 
   Chat(
       {this.name,
-        this.photoUrl,
-        this.lastMessagePhoto,
-        this.lastMessage,
-        this.timestamp});
+      this.photoUrl,
+      this.lastMessagePhoto,
+      this.lastMessage,
+      this.timestamp});
 }

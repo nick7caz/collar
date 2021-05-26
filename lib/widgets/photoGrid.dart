@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-class PhotoGrid extends StatelessWidget{
+class PhotoGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     throw UnimplementedError();
   }
-
 }

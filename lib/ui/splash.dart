@@ -12,21 +12,22 @@ class Splash extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Container(
         width: size.width,
-        decoration: const BoxDecoration(
-        gradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment(10, 3), // 10% of the width, so there are ten blinds.
-    colors: <Color>[
-      Colors.white,
-    Color(0xffe67676),
-    ],),),
-        child: Center(
-          child: Text(
-            "Collar",
-            style: GoogleFonts.coiny(
-                color: backgroundColor,
-                fontSize: size.width * 0.2,)
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment(10, 3), // 10% of the width, so there are ten blinds.
+            colors: <Color>[
+              Colors.white,
+              Color(0xffe67676),
+            ],
           ),
+        ),
+        child: Center(
+          child: Text("Collar",
+              style: GoogleFonts.coiny(
+                color: backgroundColor,
+                fontSize: size.width * 0.2,
+              )),
         ),
       ),
     );

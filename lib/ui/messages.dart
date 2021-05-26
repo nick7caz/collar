@@ -1,4 +1,3 @@
-
 import 'package:Collar/bloc/messages/messages_bloc.dart';
 import 'package:Collar/repositories/messagesrepo.dart';
 import 'package:Collar/widgets/chat.dart';
@@ -59,21 +58,23 @@ class _MessagesState extends State<Messages> {
                     itemBuilder: (BuildContext context, int index) {
                       return ChatWidget(
                         creationTime:
-                        snapshot.data.documents[index].data['timestamp'],
+                            snapshot.data.documents[index].data['timestamp'],
                         userId: widget.userId,
                         selectedUserId:
-                        snapshot.data.documents[index].documentID,
+                            snapshot.data.documents[index].documentID,
                       );
                     },
                   );
                 }
               } else
                 return Center(
-                  child: Text(
+                    child: Text(
                   " You don't have any conversations",
-                  style: GoogleFonts.alatsi(fontSize: 16.0, fontWeight: FontWeight.bold, color: Color(0xffe67676)),
-                )
-                );
+                  style: GoogleFonts.alatsi(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xffe67676)),
+                ));
             },
           );
         }

@@ -21,8 +21,8 @@ class MessagingBloc extends Bloc<MessagingEvent, MessagingState> {
 
   @override
   Stream<MessagingState> mapEventToState(
-      MessagingEvent event,
-      ) async* {
+    MessagingEvent event,
+  ) async* {
     if (event is MessageStreamEvent) {
       yield* _mapStreamToState(
           currentUserId: event.currentUserId,

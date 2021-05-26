@@ -1,4 +1,3 @@
-
 import 'package:Collar/bloc/authentication/authentication_bloc.dart';
 import 'package:Collar/bloc/signup_bloc.dart';
 import 'package:Collar/repositories/userRepo.dart';
@@ -106,8 +105,11 @@ class _SignUpFormState extends State<SignUpForm> {
                 children: <Widget>[
                   SizedBox(height: 60),
                   Center(
-                    child: Text('Collar', style: GoogleFonts.coiny(fontSize: size.width*.2, color: backgroundColor),)
-                  ),
+                      child: Text(
+                    'Collar',
+                    style: GoogleFonts.coiny(
+                        fontSize: size.width * .2, color: backgroundColor),
+                  )),
                   Container(
                     width: size.width * 0.8,
                     child: Divider(
@@ -163,7 +165,7 @@ class _SignUpFormState extends State<SignUpForm> {
                               ? Colors.white
                               : Colors.blueGrey,
                           borderRadius:
-                          BorderRadius.circular(size.height * 0.05),
+                              BorderRadius.circular(size.height * 0.05),
                         ),
                         child: Center(
                           child: Text(

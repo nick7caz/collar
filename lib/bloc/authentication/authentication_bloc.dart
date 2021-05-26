@@ -21,8 +21,8 @@ class AuthenticationBloc
 
   @override
   Stream<AuthenticationState> mapEventToState(
-      AuthenticationEvent event,
-      ) async* {
+    AuthenticationEvent event,
+  ) async* {
     if (event is AppStarted) {
       yield* _mapAppStartedToState();
     } else if (event is LoggedIn) {
@@ -54,7 +54,7 @@ class AuthenticationBloc
 
   Stream<AuthenticationState> _mapLoggedInToState() async* {
     final isFirstTime =
-    await _userRepository.isFirstTime(await _userRepository.getUser());
+        await _userRepository.isFirstTime(await _userRepository.getUser());
 
     if (!isFirstTime) {
       yield AuthenticatedButNotSet(await _userRepository.getUser());

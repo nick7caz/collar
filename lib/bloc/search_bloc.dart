@@ -7,8 +7,6 @@ import 'package:equatable/equatable.dart';
 part 'search_event.dart';
 part 'search_state.dart';
 
-
-
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
   SearchRepository _searchRepository;
 
@@ -21,8 +19,8 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
   @override
   Stream<SearchState> mapEventToState(
-      SearchEvent event,
-      ) async* {
+    SearchEvent event,
+  ) async* {
     if (event is SelectUserEvent) {
       yield* _mapSelectToState(
           currentUserId: event.currentUserId,
@@ -43,13 +41,24 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
   Stream<SearchState> _mapSelectToState(
       {String currentUserId,
-        String selectedUserId,
-        String displayName,
-        String photoUrl}) async* {
+      String selectedUserId,
+      String displayName,
+      String bio,
+      String petBio,
+      String petSize,
+      String petPhotoUrl,
+      String relationGoal,
+      String photoUrl}) async* {
     yield LoadingState();
 
     User user = await _searchRepository.chooseUser(
-        currentUserId, selectedUserId, displayName, photoUrl);
+      currentUserId,
+      selectedUserId,
+      displayName,
+      photoUrl,
+      petPhotoUrl,
+      relationGoal,
+    );
 
     User currentUser = await _searchRepository.getUserInterests(currentUserId);
     yield LoadUserState(user, currentUser);

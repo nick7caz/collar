@@ -1,4 +1,3 @@
-
 import 'package:Collar/bloc/login/login_bloc.dart';
 import 'package:Collar/repositories/userRepo.dart';
 import 'package:Collar/widgets/loginform.dart';
@@ -18,7 +17,6 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: BlocProvider<LoginBloc>(
         create: (context) => LoginBloc(
           userRepository: _userRepository,

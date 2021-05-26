@@ -26,21 +26,21 @@ class AcceptUserEvent extends MatchesEvent {
 
   AcceptUserEvent(
       {this.currentUser,
-        this.selectedUser,
-        this.selectedUserDisplayName,
-        this.selectedUserPhotoUrl,
-        this.currentUserDisplayName,
-        this.currentUserPhotoUrl});
+      this.selectedUser,
+      this.selectedUserDisplayName,
+      this.selectedUserPhotoUrl,
+      this.currentUserDisplayName,
+      this.currentUserPhotoUrl});
 
   @override
   List<Object> get props => [
-    currentUser,
-    selectedUser,
-    selectedUserDisplayName,
-    selectedUserPhotoUrl,
-    currentUserDisplayName,
-    currentUserPhotoUrl
-  ];
+        currentUser,
+        selectedUser,
+        selectedUserDisplayName,
+        selectedUserPhotoUrl,
+        currentUserDisplayName,
+        currentUserPhotoUrl
+      ];
 }
 
 class DeleteUserEvent extends MatchesEvent {
@@ -50,9 +50,9 @@ class DeleteUserEvent extends MatchesEvent {
 
   @override
   List<Object> get props => [
-    currentUser,
-    selectedUser,
-  ];
+        currentUser,
+        selectedUser,
+      ];
 }
 
 class OpenChatEvent extends MatchesEvent {
@@ -62,7 +62,7 @@ class OpenChatEvent extends MatchesEvent {
 
   @override
   List<Object> get props => [
-    currentUser,
-    selectedUser,
-  ];
+        currentUser,
+        selectedUser,
+      ];
 }

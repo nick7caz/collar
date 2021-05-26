@@ -1,4 +1,3 @@
-
 import 'package:Collar/bloc/authentication/authentication_bloc.dart';
 import 'package:Collar/repositories/userRepo.dart';
 import 'package:Collar/ui/profile.dart';
@@ -31,8 +30,7 @@ class Home extends StatelessWidget {
               userRepository: _userRepository,
             );
           }
-          if (state is AuthenticatedButNotSet)
-          {
+          if (state is AuthenticatedButNotSet) {
             return Profile(
               userRepository: _userRepository,
               userId: state.userId,

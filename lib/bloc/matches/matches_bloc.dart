@@ -5,7 +5,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 
-
 part 'matches_event.dart';
 part 'matches_state.dart';
 
@@ -21,8 +20,8 @@ class MatchesBloc extends Bloc<MatchesEvent, MatchesState> {
 
   @override
   Stream<MatchesState> mapEventToState(
-      MatchesEvent event,
-      ) async* {
+    MatchesEvent event,
+  ) async* {
     if (event is LoadListsEvent) {
       yield* _mapLoadListToState(currentUserId: event.userId);
     }
@@ -50,10 +49,10 @@ class MatchesBloc extends Bloc<MatchesEvent, MatchesState> {
     yield LoadingState();
 
     Stream<QuerySnapshot> matchedList =
-    _matchesRepository.getMatchedList(currentUserId);
+        _matchesRepository.getMatchedList(currentUserId);
 
     Stream<QuerySnapshot> selectedList =
-    _matchesRepository.getSelectedList(currentUserId);
+        _matchesRepository.getSelectedList(currentUserId);
 
     yield LoadUserState(matchedList: matchedList, selectedList: selectedList);
   }
@@ -71,11 +70,11 @@ class MatchesBloc extends Bloc<MatchesEvent, MatchesState> {
 
   Stream<MatchesState> _mapAcceptUserToState(
       {String currentUserId,
-        String selectedUserId,
-        String currentUserDisplayName,
-        String currentUserPhotoUrl,
-        String selectedUserDisplayName,
-        String selectedUserPhotoUrl}) async* {
+      String selectedUserId,
+      String currentUserDisplayName,
+      String currentUserPhotoUrl,
+      String selectedUserDisplayName,
+      String selectedUserPhotoUrl}) async* {
     await _matchesRepository.selectUser(
         currentUserId,
         selectedUserId,

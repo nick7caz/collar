@@ -15,6 +15,7 @@ class FirstNameChanged extends ProfileEvent {
   @override
   List<Object> get props => [firstName];
 }
+
 class LastNameChanged extends ProfileEvent {
   final String lastName;
 
@@ -23,6 +24,7 @@ class LastNameChanged extends ProfileEvent {
   @override
   List<Object> get props => [lastName];
 }
+
 class DisplayNameChanged extends ProfileEvent {
   final String displayName;
 
@@ -31,6 +33,7 @@ class DisplayNameChanged extends ProfileEvent {
   @override
   List<Object> get props => [displayName];
 }
+
 class BioChanged extends ProfileEvent {
   final String bio;
 
@@ -47,6 +50,96 @@ class PhotoChanged extends ProfileEvent {
 
   @override
   List<Object> get props => [photo];
+}
+
+class PetPhotoChanged extends ProfileEvent {
+  final File petPhoto;
+
+  PetPhotoChanged({@required this.petPhoto});
+
+  @override
+  List<Object> get props => [petPhoto];
+}
+
+class PetBioChanged extends ProfileEvent {
+  final String petBio;
+
+  PetBioChanged({@required this.petBio});
+
+  @override
+  List<Object> get props => [petBio];
+}
+
+class PetNameChanged extends ProfileEvent {
+  final String petName;
+
+  PetNameChanged({@required this.petName});
+
+  @override
+  List<Object> get props => [petName];
+}
+
+class PetSizeChanged extends ProfileEvent {
+  final String petSize;
+
+  PetSizeChanged({@required this.petSize});
+
+  @override
+  List<Object> get props => [petSize];
+}
+
+class SchoolChanged extends ProfileEvent {
+  final String school;
+
+  SchoolChanged({@required this.school});
+
+  @override
+  List<Object> get props => [school];
+}
+
+class ReligionChanged extends ProfileEvent {
+  final String religion;
+
+  ReligionChanged({@required this.religion});
+
+  @override
+  List<Object> get props => [religion];
+}
+
+class JobTitleChanged extends ProfileEvent {
+  final String jobTitle;
+
+  JobTitleChanged({@required this.jobTitle});
+
+  @override
+  List<Object> get props => [jobTitle];
+}
+
+class KidsChanged extends ProfileEvent {
+  final String kids;
+
+  KidsChanged({@required this.kids});
+
+  @override
+  List<Object> get props => [kids];
+}
+
+class RelationGoalChanged extends ProfileEvent {
+  final String relationGoal;
+
+  RelationGoalChanged({@required this.relationGoal});
+
+  @override
+  List<Object> get props => [relationGoal];
+}
+
+class ZodiacChanged extends ProfileEvent {
+  final String zodiac;
+
+  ZodiacChanged({@required this.zodiac});
+
+  @override
+  List<Object> get props => [zodiac];
 }
 
 class AgeChanged extends ProfileEvent {
@@ -86,22 +179,66 @@ class LocationChanged extends ProfileEvent {
 }
 
 class Submitted extends ProfileEvent {
-  final String firstName, lastName, displayName, bio, gender, interestedIn;
+  final String firstName,
+      lastName,
+      displayName,
+      bio,
+      gender,
+      petSize,
+      petName,
+      petBio,
+      religion,
+      relationGoal,
+      school,
+      jobTitle,
+      zodiac,
+      kids,
+      interestedIn;
   final DateTime age;
   final GeoPoint location;
-  final File photo;
+  final File photo, petPhoto;
 
   Submitted(
       {@required this.firstName,
-        @required this.lastName,
-        @required this.displayName,
-        @required this.bio,
-        @required this.gender,
-        @required this.interestedIn,
-        @required this.age,
-        @required this.location,
-        @required this.photo});
+      @required this.lastName,
+      @required this.displayName,
+      @required this.bio,
+      @required this.gender,
+      @required this.interestedIn,
+      @required this.petPhoto,
+      @required this.petName,
+      @required this.petSize,
+      @required this.petBio,
+      @required this.religion,
+      @required this.relationGoal,
+      @required this.school,
+      @required this.jobTitle,
+      @required this.zodiac,
+      @required this.kids,
+      @required this.age,
+      @required this.location,
+      @required this.photo});
 
   @override
-  List<Object> get props => [location, firstName, lastName, displayName, bio, age, gender, interestedIn, photo];
+  List<Object> get props => [
+        location,
+        firstName,
+        lastName,
+        displayName,
+        bio,
+        age,
+        gender,
+        interestedIn,
+        photo,
+        petPhoto,
+        petSize,
+        petName,
+        petBio,
+        kids,
+        religion,
+        relationGoal,
+        school,
+        jobTitle,
+        zodiac
+      ];
 }

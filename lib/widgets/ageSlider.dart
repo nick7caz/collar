@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-
-class AgeSlider extends StatefulWidget{
-
+class AgeSlider extends StatefulWidget {
   @override
   _AgeSliderState createState() => _AgeSliderState();
 }
-class _AgeSliderState extends State<AgeSlider>{
+
+class _AgeSliderState extends State<AgeSlider> {
   RangeValues _currentRangeValues = const RangeValues(22, 38);
 
   @override

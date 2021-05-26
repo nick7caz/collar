@@ -1,4 +1,3 @@
-
 import 'package:Collar/models/chat.dart';
 import 'package:Collar/models/messages.dart';
 import 'package:Collar/models/user.dart';
@@ -29,7 +28,7 @@ class _ChatWidgetState extends State<ChatWidget> {
     user = await messageRepository.getUserDetail(userId: widget.selectedUserId);
     Message message = await messageRepository
         .getLastMessage(
-        currentUserId: widget.userId, selectedUserId: widget.selectedUserId)
+            currentUserId: widget.userId, selectedUserId: widget.selectedUserId)
         .catchError((error) {
       print(error);
     });
@@ -55,9 +54,9 @@ class _ChatWidgetState extends State<ChatWidget> {
 
   openChat() async {
     User currentUser =
-    await messageRepository.getUserDetail(userId: widget.userId);
+        await messageRepository.getUserDetail(userId: widget.userId);
     User selectedUser =
-    await messageRepository.getUserDetail(userId: widget.selectedUserId);
+        await messageRepository.getUserDetail(userId: widget.selectedUserId);
 
     try {
       pageTurn(Messaging(currentUser: currentUser, selectedUser: selectedUser),
@@ -91,44 +90,44 @@ class _ChatWidgetState extends State<ChatWidget> {
               showDialog(
                   context: context,
                   builder: (BuildContext context) => AlertDialog(
-                    content: Wrap(
-                      children: <Widget>[
-                        Text(
-                          "Delete this Chat?",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                        content: Wrap(
+                          children: <Widget>[
+                            Text(
+                              "Delete this Chat?",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              "This cannot be undone",
+                              style: TextStyle(fontWeight: FontWeight.w500),
+                            ),
+                          ],
                         ),
-                        Text(
-                          "This cannot be undone",
-                          style: TextStyle(fontWeight: FontWeight.w500),
-                        ),
-                      ],
-                    ),
-                    actions: <Widget>[
-                      FlatButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Text(
-                          "No",
-                          style: TextStyle(
-                            color: Colors.blue,
+                        actions: <Widget>[
+                          FlatButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text(
+                              "No",
+                              style: TextStyle(
+                                color: Colors.blue,
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                      FlatButton(
-                        onPressed: () async {
-                          await deleteChat();
-                          Navigator.of(context).pop();
-                        },
-                        child: Text(
-                          "Yes",
-                          style: TextStyle(
-                            color: Color(0xffe67676),
+                          FlatButton(
+                            onPressed: () async {
+                              await deleteChat();
+                              Navigator.of(context).pop();
+                            },
+                            child: Text(
+                              "Yes",
+                              style: TextStyle(
+                                color: Color(0xffe67676),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    ],
-                  ));
+                        ],
+                      ));
             },
             child: Padding(
               padding: EdgeInsets.all(size.height * 0.02),
@@ -164,28 +163,28 @@ class _ChatWidgetState extends State<ChatWidget> {
                             ),
                             chat.lastMessage != null
                                 ? Text(
-                              chat.lastMessage,
-                              overflow: TextOverflow.fade,
-                              style: TextStyle(color: Colors.grey),
-                            )
+                                    chat.lastMessage,
+                                    overflow: TextOverflow.fade,
+                                    style: TextStyle(color: Colors.grey),
+                                  )
                                 : chat.lastMessagePhoto == null
-                                ? Text("Go Fetch")
-                                : Row(
-                              children: <Widget>[
-                                Icon(
-                                  Icons.photo,
-                                  color: Colors.grey,
-                                  size: size.height * 0.02,
-                                ),
-                                Text(
-                                  "Photo",
-                                  style: TextStyle(
-                                    fontSize: size.height * 0.015,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ],
-                            ),
+                                    ? Text("Go Fetch")
+                                    : Row(
+                                        children: <Widget>[
+                                          Icon(
+                                            Icons.photo,
+                                            color: Colors.grey,
+                                            size: size.height * 0.02,
+                                          ),
+                                          Text(
+                                            "Photo",
+                                            style: TextStyle(
+                                              fontSize: size.height * 0.015,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                           ],
                         ),
                       ],

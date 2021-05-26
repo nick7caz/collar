@@ -14,16 +14,36 @@ class ProfileState {
   final bool isSubmitting;
   final bool isSuccess;
   final bool isBioEmpty;
+  final bool isPetPhotoEmpty;
+  final bool isPetBioEmpty;
+  final bool isPetNameEmpty;
+  final bool isPetSizeEmpty;
+  final bool isSchoolEmpty;
+  final bool isReligionEmpty;
+  final bool isRelationGoalEmpty;
+  final bool isJobTitleEmpty;
+  final bool isKidsEmpty;
+  final bool isZodiacEmpty;
 
   bool get isFormValid =>
       isPhotoEmpty &&
-          isFirstNameEmpty &&
-          isLastNameEmpty &&
-          isDisplayNameEmpty &&
-          isAgeEmpty &&
-          isGenderEmpty &&
-          isInterestedInEmpty &&
-          isBioEmpty;
+      isFirstNameEmpty &&
+      isLastNameEmpty &&
+      isDisplayNameEmpty &&
+      isAgeEmpty &&
+      isGenderEmpty &&
+      isInterestedInEmpty &&
+      isPetPhotoEmpty &&
+      isPetBioEmpty &&
+      isPetNameEmpty &&
+      isPetSizeEmpty &&
+      isSchoolEmpty &&
+      isReligionEmpty &&
+      isRelationGoalEmpty &&
+      isJobTitleEmpty &&
+      isKidsEmpty &&
+      isZodiacEmpty &&
+      isBioEmpty;
 
   ProfileState({
     @required this.isPhotoEmpty,
@@ -35,6 +55,16 @@ class ProfileState {
     @required this.isGenderEmpty,
     @required this.isInterestedInEmpty,
     @required this.isLocationEmpty,
+    @required this.isPetPhotoEmpty,
+    @required this.isPetBioEmpty,
+    @required this.isPetNameEmpty,
+    @required this.isPetSizeEmpty,
+    @required this.isSchoolEmpty,
+    @required this.isReligionEmpty,
+    @required this.isRelationGoalEmpty,
+    @required this.isJobTitleEmpty,
+    @required this.isKidsEmpty,
+    @required this.isZodiacEmpty,
     @required this.isFailure,
     @required this.isSubmitting,
     @required this.isSuccess,
@@ -53,7 +83,17 @@ class ProfileState {
       isGenderEmpty: false,
       isInterestedInEmpty: false,
       isLocationEmpty: false,
-        isBioEmpty: false,
+      isBioEmpty: false,
+      isPetPhotoEmpty: false,
+      isPetNameEmpty: false,
+      isPetBioEmpty: false,
+      isPetSizeEmpty: false,
+      isSchoolEmpty: false,
+      isReligionEmpty: false,
+      isRelationGoalEmpty: false,
+      isJobTitleEmpty: false,
+      isKidsEmpty: false,
+      isZodiacEmpty: false,
     );
   }
 
@@ -70,7 +110,17 @@ class ProfileState {
       isGenderEmpty: false,
       isInterestedInEmpty: false,
       isLocationEmpty: false,
-        isBioEmpty: false,
+      isBioEmpty: false,
+      isPetPhotoEmpty: false,
+      isPetBioEmpty: false,
+      isPetNameEmpty: false,
+      isPetSizeEmpty: false,
+      isSchoolEmpty: false,
+      isReligionEmpty: false,
+      isRelationGoalEmpty: false,
+      isJobTitleEmpty: false,
+      isKidsEmpty: false,
+      isZodiacEmpty: false,
     );
   }
 
@@ -87,7 +137,17 @@ class ProfileState {
       isGenderEmpty: false,
       isInterestedInEmpty: false,
       isLocationEmpty: false,
-        isBioEmpty: false,
+      isBioEmpty: false,
+      isPetPhotoEmpty: false,
+      isPetBioEmpty: false,
+      isPetNameEmpty: false,
+      isPetSizeEmpty: false,
+      isSchoolEmpty: false,
+      isReligionEmpty: false,
+      isRelationGoalEmpty: false,
+      isJobTitleEmpty: false,
+      isKidsEmpty: false,
+      isZodiacEmpty: false,
     );
   }
 
@@ -105,9 +165,18 @@ class ProfileState {
       isInterestedInEmpty: false,
       isLocationEmpty: false,
       isBioEmpty: false,
+      isPetPhotoEmpty: false,
+      isPetNameEmpty: false,
+      isPetBioEmpty: false,
+      isPetSizeEmpty: false,
+      isSchoolEmpty: false,
+      isReligionEmpty: false,
+      isRelationGoalEmpty: false,
+      isJobTitleEmpty: false,
+      isKidsEmpty: false,
+      isZodiacEmpty: false,
     );
   }
-
 
   ProfileState update({
     bool isPhotoEmpty,
@@ -119,6 +188,16 @@ class ProfileState {
     bool isInterestedInEmpty,
     bool isLocationEmpty,
     bool isBioEmpty,
+    bool isPetPhotoEmpty,
+    bool isPetBioEmpty,
+    bool isPetNameEmpty,
+    bool isPetSizeEmpty,
+    bool isSchoolEmpty,
+    bool isReligionEmpty,
+    bool isRelationGoalEmpty,
+    bool isJobTitleEmpty,
+    bool isKidsEmpty,
+    bool isZodiacEmpty,
   }) {
     return copyWith(
       isFailure: false,
@@ -130,7 +209,17 @@ class ProfileState {
       isGenderEmpty: isGenderEmpty,
       isInterestedInEmpty: isInterestedInEmpty,
       isLocationEmpty: isLocationEmpty,
-        isBioEmpty: isBioEmpty,
+      isBioEmpty: isBioEmpty,
+      isPetPhotoEmpty: isPetPhotoEmpty,
+      isPetBioEmpty: isPetBioEmpty,
+      isPetNameEmpty: isPetNameEmpty,
+      isPetSizeEmpty: isPetSizeEmpty,
+      isSchoolEmpty: isSchoolEmpty,
+      isReligionEmpty: isReligionEmpty,
+      isRelationGoalEmpty: isRelationGoalEmpty,
+      isJobTitleEmpty: isJobTitleEmpty,
+      isKidsEmpty: isKidsEmpty,
+      isZodiacEmpty: isZodiacEmpty,
     );
   }
 
@@ -147,17 +236,37 @@ class ProfileState {
     bool isSuccess,
     bool isFailure,
     bool isBioEmpty,
+    bool isPetPhotoEmpty,
+    bool isPetBioEmpty,
+    bool isPetNameEmpty,
+    bool isPetSizeEmpty,
+    bool isSchoolEmpty,
+    bool isReligionEmpty,
+    bool isRelationGoalEmpty,
+    bool isJobTitleEmpty,
+    bool isKidsEmpty,
+    bool isZodiacEmpty,
   }) {
     return ProfileState(
       isPhotoEmpty: isPhotoEmpty ?? this.isPhotoEmpty,
       isFirstNameEmpty: isFirstNameEmpty ?? this.isFirstNameEmpty,
       isLastNameEmpty: isLastNameEmpty ?? this.isLastNameEmpty,
-      isDisplayNameEmpty: isDisplayNameEmpty?? this.isDisplayNameEmpty,
+      isDisplayNameEmpty: isDisplayNameEmpty ?? this.isDisplayNameEmpty,
       isBioEmpty: isBioEmpty ?? this.isBioEmpty,
       isLocationEmpty: isLocationEmpty ?? this.isLocationEmpty,
       isInterestedInEmpty: isInterestedInEmpty ?? this.isInterestedInEmpty,
       isGenderEmpty: isGenderEmpty ?? this.isGenderEmpty,
       isAgeEmpty: isAgeEmpty ?? this.isAgeEmpty,
+      isPetPhotoEmpty: isPetPhotoEmpty ?? this.isPetPhotoEmpty,
+      isPetBioEmpty: isPetBioEmpty ?? this.isPetBioEmpty,
+      isPetNameEmpty: isPetNameEmpty ?? this.isPetNameEmpty,
+      isPetSizeEmpty: isPetSizeEmpty ?? this.isPetSizeEmpty,
+      isSchoolEmpty: isSchoolEmpty ?? this.isSchoolEmpty,
+      isReligionEmpty: isReligionEmpty ?? this.isReligionEmpty,
+      isRelationGoalEmpty: isRelationGoalEmpty ?? this.isRelationGoalEmpty,
+      isJobTitleEmpty: isJobTitleEmpty ?? this.isJobTitleEmpty,
+      isKidsEmpty: isKidsEmpty ?? this.isKidsEmpty,
+      isZodiacEmpty: isZodiacEmpty ?? this.isZodiacEmpty,
       isSubmitting: isSubmitting ?? this.isSubmitting,
       isSuccess: isSuccess ?? this.isSuccess,
       isFailure: isFailure ?? this.isFailure,
@@ -165,7 +274,7 @@ class ProfileState {
   }
 }
 
-class LoadProfileState extends ProfileState{
+class LoadProfileState extends ProfileState {
   final Stream<QuerySnapshot> age;
   final Stream<QuerySnapshot> photoUrl;
 

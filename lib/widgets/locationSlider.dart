@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-
-class LocationSlider extends StatefulWidget{
-
+class LocationSlider extends StatefulWidget {
   @override
   _LocationSliderState createState() => _LocationSliderState();
 }
-class _LocationSliderState extends State<LocationSlider>{
+
+class _LocationSliderState extends State<LocationSlider> {
   double _currentSliderValue = 20;
 
   @override

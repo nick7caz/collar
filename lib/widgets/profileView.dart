@@ -1,40 +1,41 @@
-import 'package:Collar/ui/cardProfile.dart';
+import 'package:Collar/widgets/cardProfile.dart';
 import 'package:flutter/material.dart';
 import 'photo.dart';
 
-
 Widget profileViewWidget(
     {padding,
-      photoHeight,
-      photoWidth,
-      clipRadius,
-      photo,
-      containerHeight,
-      containerWidth,
-      child}) {
-  return  Stack(
-      children: [
-   Column(
+    photoHeight,
+    photoWidth,
+    clipRadius,
+    photo,
+    containerHeight,
+    containerWidth,
+    child}) {
+  return Stack(
     children: [
-      Container(
-      width: photoWidth,
-      height: photoHeight,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(clipRadius),
-        child: PhotoWidget(
-          photoLink: photo,
-        ),
+      Column(
+        children: [
+          Container(
+            width: photoWidth,
+            height: photoHeight,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(clipRadius),
+              child: PhotoWidget(
+                photoLink: photo,
+              ),
+            ),
+          ),
+          Container(
+              child: PhotoWidget(
+            photoLink: photo,
+          )),
+          SizedBox(
+            height: 200,
+          )
+        ],
       ),
-    ),
-    Container(child: PhotoWidget(
-      photoLink: photo,)),
-    SizedBox(height: 200,)
     ],
-  ),
-  ],
   );
-
-
 
   //   Padding(
   //   padding: EdgeInsets.all(padding),
@@ -67,5 +68,4 @@ Widget profileViewWidget(
   // ),
   //   ),
   // );
-
 }

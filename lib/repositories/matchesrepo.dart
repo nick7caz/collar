@@ -78,8 +78,13 @@ class MatchesRepository {
         .delete();
   }
 
-  Future selectUser(currentUserId, selectedUserId, currentUserName,
-      currentUserPhotoUrl, selectedUserDisplayName, selectedUserPhotoUrl) async {
+  Future selectUser(
+      currentUserId,
+      selectedUserId,
+      currentUserDisplayName,
+      currentUserPhotoUrl,
+      selectedUserDisplayName,
+      selectedUserPhotoUrl) async {
     deleteUser(currentUserId, selectedUserId);
 
     await _firestore
@@ -98,7 +103,7 @@ class MatchesRepository {
         .collection('matchedList')
         .document(currentUserId)
         .setData({
-      'displayName': currentUserName,
+      'displayName': currentUserDisplayName,
       'photoUrl': currentUserPhotoUrl,
     });
   }

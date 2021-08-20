@@ -116,7 +116,7 @@ class UserRepository {
     StorageUploadTask storageUploadTask;
     storageUploadTask = FirebaseStorage.instance
         .ref()
-        .child("userPhotos/$photo, $petPhoto")
+        .child("userPhotos/$photo")
         .child(userId)
         .child(userId)
         .putFile(photo);
